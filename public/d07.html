@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KPI 看板 · 司徒 Situ 营销交付物</title>
+<link rel="icon" href="favicon.svg"><link rel="stylesheet" href="assets/style.css"><style>
+.ctrl input.sm{width:70px;font-size:15px;padding:4px 6px;border:1px solid #E4CDB8;border-radius:8px}
+.kbtn{display:flex;gap:6px;flex-wrap:wrap}
+.kmt td{vertical-align:top;min-width:110px}
+.kmt td:first-child{min-width:70px;font-weight:700;white-space:nowrap}
+.kmt .tg{font-size:12px;color:#5d6b82;white-space:nowrap}
+.kmt input,.dxg input{width:100%;box-sizing:border-box;padding:4px 6px;border:1px solid #E4CDB8;border-radius:6px;font-size:14px;font-family:inherit;background:#fff}
+.kmt tr.cur td{background:#FFF7F0}
+.rt{font-size:12px;margin-top:2px;white-space:nowrap}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.d-ok{background:#2b8a3e}.d-warn{background:#f08c00}.d-bad{background:#e03131}.d-na{background:#c5cbd6}
+.dxg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 14px;margin:8px 0 16px}
+.dxg label{font-size:12.5px;color:#5d6b82;display:block}
+.tier{display:grid;grid-template-columns:150px 1fr 220px;gap:10px;align-items:center;margin:8px 0}
+.tier .bar{height:14px;position:relative}
+.tier .bar b{position:absolute;top:-3px;width:2px;height:20px;background:#14213d}
+.fun{display:grid;grid-template-columns:120px 1fr 260px;gap:8px;align-items:center;margin:6px 0;font-size:13.5px}
+.fun .tr{height:22px;background:#e9edf5;border-radius:6px;position:relative;overflow:hidden}
+.fun .tr i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#FF6A1F,#FFB37F);border-radius:6px}
+.fun .tr s{position:absolute;left:0;top:0;bottom:0;border-right:2px dashed #14213d;text-decoration:none}
+.cardk.ok{border-color:#c3ecca;background:#f3fcf5}.cardk.warn{border-color:#ffdcae;background:#fffaf0}.cardk.bad{border-color:#ffc9c9;background:#fff5f5}
+@media print{.ctrl,.kbtn,#k-mon{display:none}}
+</style></head>
+<body>
+<header class="top"><a class="logo" href="index.html"><img src="assets/logo.svg" alt=""><b>司徒 Situ</b>营销交付物</a>
+<nav class="topnav"><a href="d01.html">市场洞察报告</a><a href="d02.html">品牌定位方案</a><a href="d03.html">营销组合方案</a><a href="d04.html">价格与促销策略</a><a href="d05.html">营销行动计划</a><a href="d06.html">预算排期表</a><a href="d07.html" class=on>KPI 看板</a><a href="d08.html">月度复盘报告</a><a href="d09.html">测试计划</a><a href="d10.html">迭代建议</a></nav></header>
+<section class="hero stage-control"><div class="in">
+<div class="crumb"><a href="index.html">交付物</a> · 测量与控制 · 效果好不好，问题在哪</div>
+<h1><span class="ic">07</span>KPI 看板</h1><p class="sub">北极星指标、三级目标、漏斗、月度目标与实际、预警阈值、归因与品牌健康、指标字典</p>
+<div class="meta"><div><span>客户</span>司徒 Situ（一人公司与小团队的 AI 助理）</div><div><span>版本</span>v1.0（2026-11-23）</div><div><span>编制</span>[公司名称] · 营销策略服务</div><a class="dl" href="javascript:window.print()">打印 / 存为 PDF</a></div>
+</div></section>
+<div class="layout"><aside class="toc"><div class="tt">本页目录</div><a class="t1" href="#s1">一页结论</a><a class="t1" href="#s2">看板：填实际值，自动算达成率</a><a class="t1" href="#s3">三级目标与月度目标</a><a class="t2" href="#s3-1">模型月度目标（基准：预算 ¥2 万，默认假设）</a><a class="t1" href="#s4">预警规则表</a><a class="t1" href="#s5">归因方法</a><a class="t2" href="#s5-1">申请表“从哪里知道我们”选项</a><a class="t2" href="#s5-2">AI 提及率抽样规程</a><a class="t1" href="#s6">品牌健康追踪</a><a class="t1" href="#s7">指标字典</a><a class="t2" href="#s7-1">看板节奏</a><a class="t1" href="#s8">附：证据等级与数据来源</a></aside>
+<main class="doc"><h2 class="h1" id="s1">一页结论</h2>
+<p>这张看板只回答三个问题：<b>用的人够不够多、留不留得住、钱花得值不值</b>。北极星指标是<b>每周至少使用 3 天的在付用户数</b>，它同时反映价值和收入 <span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span>。付费和使用频率强相关：每天用 AI 的人付费率 18.5%，每月用一次的只有 0.9% <sup class="ref"><a href="#src-S276" title="woshipm.com · 每天用AI的人，付费意愿是低频者的13倍：你被AI“绑架”了吗？ | 人人都是产品经理">S276</a></sup>。</p>
+<div class="cards"><div class="cardk"><div class="v">527</div><div class="l">模型：第 12 个月在付用户（其中尊享版 158）</div></div><div class="cardk"><div class="v">316</div><div class="l">北极星目标：第 12 个月每周用 ≥3 天的在付用户 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></div></div><div class="cardk"><div class="v">¥68.5 万</div><div class="l">模型：第 12 个月月营收（考核 ¥40 万 / 冲刺 ¥50 万）</div></div><div class="cardk"><div class="v">¥60</div><div class="l">付费渠道 CAC 暂停线（模型 CAC ¥40 × 1.5）</div></div><div class="cardk"><div class="v">4%</div><div class="l">月流失红线（H9），超过即暂停投流</div></div><div class="cardk"><div class="v">60%</div><div class="l">第 4 周周活红线（H1），低于即不放量</div></div></div>
+<div class="tw"><table><colgroup><col style="width:20.0%"><col style="width:40.0%"><col style="width:20.0%"><col style="width:20.0%"></colgroup><thead><tr><th>要盯的事</th><th>看什么</th><th>多久看一次</th><th>谁看</th></tr></thead><tbody><tr><td>产品有没有被用起来</td><td>北极星指标、第 1 天激活、第 4 周周活</td><td>每周</td><td>产品经理（发言人 2）、芒果</td></tr><tr><td>收入是否按路径走</td><td>在付、尊享在付、新付费、月营收、试用量（与模型逐月对比）</td><td>每月</td><td>决策人（发言人 1）</td></tr><tr><td>钱花得值不值</td><td>分渠道 CAC、MER、邀请付费占比</td><td>每周看趋势，每月调仓</td><td>推广负责人</td></tr><tr><td>要不要踩刹车</td><td>预警规则表 11 条（红灯即执行预案）</td><td>每周</td><td>决策人（发言人 1）</td></tr><tr><td>品牌有没有被记住</td><td>AI 回答提及率、品牌搜索量、口碑正负面</td><td>每季度</td><td>推广负责人</td></tr></tbody></table></div>
+<div class="box warn"><span class="bi">!</span><div><b>最需要先测出来的两个数是“试用转付费”和“月流失”。</b> 模型的月度目标建立在公开试用转付费 20%、邀请转付费 35%、月流失 4% 的假设上 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>。如果试用体验 ¥999 档后转付费降到约 37%（下行情景），第 12 个月营收只有约 ¥21.8 万。看板里可以把目标切到“下行情景”对照，封闭测试（H1）和前 3 个收费月（H9）出结果后，用实测值替换假设 <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a>,<a href="#src-M4" title="公司内部资料 · 会议纪要：晨会：产品定位、核心能力与定价（2026-11-18）">M4</a></sup>。</div></div>
+<h2 class="h1" id="s2">看板：填实际值，自动算达成率</h2>
+<p>用法：① 选复盘月份；② 在“月度目标与实际”里填 5 个核心数，在“当月诊断数据”里填其余数；③ 卡片、三级目标、漏斗和预警灯自动更新。数据只存在这台电脑的浏览器里（localStorage），换电脑或清缓存会丢，<b>每月复盘后请点“导出 JSON”存档</b>，或导出 CSV 贴进《月度复盘报告》。</p>
+
+<div class="ctrl" id="k-ctrl">
+ <label>目标对应的营销预算（元）<br><input type="number" id="k-budget" min="1000" step="1000" value="20000"></label>
+ <div><label>目标情景</label><div class="chips" id="k-scen"><button data-s="base" class="on">基准假设</button><button data-s="down">下行情景（转付费约 37%）</button></div></div>
+ <label>绿灯：达成率 ≥ <input type="number" id="k-g" class="sm" value="95" min="0" max="200">%</label>
+ <label>红灯：达成率 &lt; <input type="number" id="k-r" class="sm" value="80" min="0" max="200">%</label>
+ <div class="kbtn"><button id="k-exp">导出 JSON</button><button id="k-imp">导入 JSON</button><button id="k-csv">导出 CSV</button><button id="k-clr">清空实际值</button><input type="file" id="k-file" accept=".json,application/json" hidden></div>
+</div>
+<div class="chips" id="k-mon"></div>
+<p class="note" id="k-save">尚未填写实际值。</p>
+<h4 class="h3">当月关键数字</h4>
+<div class="cards" id="k-cards"></div>
+<h4 class="h3">三级目标进度</h4>
+<div id="k-tier"></div>
+<h4 class="h3">当月漏斗：候补 → 放号试用 → 第 1 天激活 → 付费 → 次月续费 → 邀请</h4>
+<div id="k-funnel"></div>
+<h4 class="h3">预警灯（当月）</h4>
+<div class="tw"><table id="k-alert"><thead><tr><th>规则</th><th>当月实际</th><th>阈值</th><th>状态</th><th>红灯时做什么</th></tr></thead><tbody></tbody></table></div>
+<h4 class="h3">当月诊断数据（填写）</h4>
+<div class="dxg" id="k-dx"></div>
+<h4 class="h3">月度目标与实际（全年）</h4>
+<p class="note">每格上方是模型目标（随预算和情景变化），中间填实际值，下方是达成率。12 月为封闭测试、不收费，在付、新付费、月营收目标为 0，不考核。</p>
+<div class="tw"><table id="k-month" class="kmt"><thead><tr><th>月份</th><th>在付用户</th><th>尊享在付</th><th>新付费</th><th>月营收（元）</th><th>试用量（放号 + 邀请）</th></tr></thead><tbody></tbody></table></div>
+<div class="tw"><table id="k-sum"><thead><tr><th>全年合计</th><th>模型</th><th>已填实际</th><th>同期模型</th><th>同期达成率</th></tr></thead><tbody></tbody></table></div>
+
+<p class="note">看板计算口径：达成率 = 实际 ÷ 模型目标；绿/黄/红线可在上方调整（默认 95% / 80%，<span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>，按前 3 个收费月的波动再定）。月流失优先用“上月在付中本月续费数”计算，没填则用 (上月在付 + 本月新付费 − 本月在付) ÷ 上月在付 估算。北极星目标 = 模型在付 × 60%（借用 H1 第 4 周周活 ≥ 60% 的门槛）<span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>。</p>
+<h2 class="h1" id="s3">三级目标与月度目标</h2>
+<p>三级目标已由管理层在 2026-11-14 确认 <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup>。看板按下表判定进度，三级之间不混用口径：阶段一看“连续 3 个月”，阶段二看单月营收，阶段三看在付人数。</p>
+<div class="tw"><table><colgroup><col style="width:10.5%"><col style="width:21.1%"><col style="width:15.8%"><col style="width:10.5%"><col style="width:21.1%"><col style="width:21.1%"></colgroup><thead><tr><th>阶段</th><th>目标</th><th>需要的在付用户（按加权 ARPU）</th><th>模型首次达到</th><th>截止 / 判定</th><th>看板怎么算</th></tr></thead><tbody><tr><td>阶段一</td><td>月营收 ¥10 万，连续 3 个月</td><td>约 77 人</td><td>2027-01</td><td>2027-04-30；达到后才释放投流机动金</td><td>截至所选月，连续 ≥ ¥10 万的月数 ÷ 3</td></tr><tr><td>阶段二</td><td>月营收 ¥50 万（第 12 个月考核 ¥40 万）</td><td>约 385 人</td><td>2027-08</td><td>2027-11</td><td>所选月实际营收 ÷ ¥50 万，并标出 ¥40 万考核线</td></tr><tr><td>阶段三</td><td>2,000 名长期用户</td><td>2,000 人</td><td>12 个月内未达到</td><td>2028 年目标</td><td>所选月实际在付 ÷ 2,000</td></tr></tbody></table></div>
+<p>加权 ARPU = 畅享版 ¥999 × 70% + 尊享版 ¥1,999 × 30% = ¥1,299/月；尊享版占比 30% 为暂定值 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>。</p>
+<h3 class="h2" id="s3-1">模型月度目标（基准：预算 ¥2 万，默认假设）</h3>
+<p>下表就是看板默认的目标线。试用量 = 公开放号 + 邀请试用（含 12 月、1 月各 30 位种子用户）。</p>
+<div class="tw"><table><colgroup><col style="width:10.0%"><col style="width:10.0%"><col style="width:10.0%"><col style="width:10.0%"><col style="width:10.0%"><col style="width:10.0%"><col style="width:15.0%"><col style="width:10.0%"><col style="width:15.0%"></colgroup><thead><tr><th>月份</th><th>候补申请</th><th>试用量</th><th>新付费</th><th>在付</th><th>尊享在付</th><th>月营收</th><th>下行：在付</th><th>下行：月营收</th></tr></thead><tbody><tr><td>2026-12</td><td>280</td><td>310</td><td>0</td><td>0</td><td>0</td><td>¥0</td><td>0</td><td>¥0</td></tr><tr><td>2027-01</td><td>288</td><td>318</td><td>135</td><td>135</td><td>40</td><td>¥17.5 万</td><td>50</td><td>¥64,966</td></tr><tr><td>2027-02</td><td>73</td><td>89</td><td>20</td><td>150</td><td>45</td><td>¥19.4 万</td><td>54</td><td>¥70,456</td></tr><tr><td>2027-03</td><td>288</td><td>306</td><td>64</td><td>208</td><td>62</td><td>¥27.0 万</td><td>74</td><td>¥96,557</td></tr><tr><td>2027-04</td><td>212</td><td>237</td><td>51</td><td>250</td><td>75</td><td>¥32.5 万</td><td>88</td><td>¥11.5 万</td></tr><tr><td>2027-05</td><td>190</td><td>220</td><td>49</td><td>289</td><td>87</td><td>¥37.5 万</td><td>100</td><td>¥13.0 万</td></tr><tr><td>2027-06</td><td>198</td><td>233</td><td>52</td><td>329</td><td>99</td><td>¥42.7 万</td><td>112</td><td>¥14.6 万</td></tr><tr><td>2027-07</td><td>202</td><td>241</td><td>54</td><td>370</td><td>111</td><td>¥48.1 万</td><td>125</td><td>¥16.2 万</td></tr><tr><td>2027-08</td><td>187</td><td>231</td><td>53</td><td>408</td><td>122</td><td>¥53.0 万</td><td>136</td><td>¥17.6 万</td></tr><tr><td>2027-09</td><td>202</td><td>251</td><td>57</td><td>449</td><td>135</td><td>¥58.4 万</td><td>147</td><td>¥19.1 万</td></tr><tr><td>2027-10</td><td>210</td><td>264</td><td>61</td><td>492</td><td>148</td><td>¥63.9 万</td><td>159</td><td>¥20.7 万</td></tr><tr><td>2027-11</td><td>170</td><td>229</td><td>55</td><td>527</td><td>158</td><td>¥68.5 万</td><td>168</td><td>¥21.8 万</td></tr></tbody></table></div>
+<div class="box info"><span class="bi">i</span><div><b>读表要注意一处口径差：</b> 模型把 12 月的 280 个候补申请也算作当月放号试用，并在 1 月一起转付费（1 月新付费 135 中约 56 来自 12 月）。而路线图写的是 12 月只做约 60 人封闭测试、1 月才上线候补名单 <span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span>。如果 12 月不放号，1 月的新付费和在付会明显低于模型，这不算失控，复盘时按“1 月放号量”重新核对即可。</div></div>
+<h2 class="h1" id="s4">预警规则表</h2>
+<p>红线全部来自计划的闸门和假设检验（H1–H9）；黄线是提前量，由我们补充 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>。<b>红灯不讨论、直接执行预案；黄灯在周会上点名、给出原因。</b></p>
+<div class="tw"><table><colgroup><col style="width:4.3%"><col style="width:21.7%"><col style="width:8.7%"><col style="width:8.7%"><col style="width:13.0%"><col style="width:21.7%"><col style="width:13.0%"><col style="width:8.7%"></colgroup><thead><tr><th>#</th><th>规则</th><th>绿</th><th>黄</th><th>红（执行预案）</th><th>预案</th><th>频率 / 负责人</th><th>依据</th></tr></thead><tbody><tr><td>1</td><td>付费渠道获客成本（CAC = 渠道花费 ÷ 该渠道带来的付费）</td><td>≤ ¥40</td><td>¥40–¥60</td><td>连续 2 周 &gt; ¥60（模型 CAC 的 1.5 倍）</td><td>暂停该渠道，预算转到 OPC 社区与团队演示</td><td>每周 / 推广负责人</td><td>计划 7.5 调仓规则</td></tr><tr><td>2</td><td>月流失率</td><td>≤ 3%</td><td>3%–4%</td><td>&gt; 4%</td><td>暂停投流，先改留存（连续 7 天不活跃即人工回访）</td><td>每月 / 产品经理</td><td>H9</td></tr><tr><td>3</td><td>第 4 周周活</td><td>≥ 65%</td><td>60%–65%</td><td>&lt; 60%</td><td>不收费放量，先改产品</td><td>每周 / 产品经理</td><td>H1</td></tr><tr><td>4</td><td>封闭测试转付费（12 月种子）</td><td>≥ 35%</td><td>30%–35%</td><td>&lt; 30%</td><td>不收费放量，先改产品</td><td>2027-01-31 判定</td><td>H1</td></tr><tr><td>5</td><td>NPS</td><td>≥ 55</td><td>50–55</td><td>&lt; 50</td><td>回访差评用户，优先修第 1 天体验</td><td>每月 / elle</td><td>H1</td></tr><tr><td>6</td><td>公开试用转付费</td><td>≥ 20%</td><td>15%–20%</td><td>&lt; 15%</td><td>交管理层复议：试用方式、两档差异或季付优惠</td><td>每月 / 发言人 2</td><td>H2</td></tr><tr><td>7</td><td>邀请付费占比</td><td>≥ 25%</td><td>20%–25%</td><td>&lt; 20%</td><td>检查邀请码发放与推荐奖励是否到位</td><td>每月 / 推广负责人</td><td>SMART 目标、H4</td></tr><tr><td>8</td><td>异常账号占比（重复设备 / 手机号、转卖邀请码）</td><td>&lt; 1%</td><td>1%–2%</td><td>≥ 2%</td><td>收紧放号或调整邀请数</td><td>每月 / 李梦</td><td>H4</td></tr><tr><td>9</td><td>每在付用户月算力成本</td><td>≤ ¥200</td><td>¥200–¥300</td><td>&gt; ¥300</td><td>调整模型路由或工作项额度</td><td>每月 / 李梦</td><td>H6</td></tr><tr><td>10</td><td>尊享版专属流程 1 个工作日内交付比例</td><td>≥ 90%</td><td>80%–90%</td><td>&lt; 80%</td><td>增加服务人员或限制尊享版名额</td><td>每月 / elle</td><td>H7</td></tr><tr><td>11</td><td>月营收与在付达成率（对模型）</td><td>≥ 95%</td><td>80%–95%</td><td>&lt; 80%</td><td>当月复盘做问题诊断，下月调仓</td><td>每月 / 发言人 1</td><td>目标体系 1.4 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr></tbody></table></div>
+<p>另有两条“闸门”不是预警而是放行条件：① 合规与商标两项完成前，2027-01 不开始收费；② H1、H9 通过且月营收稳定 ¥10 万后，才释放投流机动金（¥2,000）<sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup>。调仓本身也有上限：单次调仓不超过该科目当季余额的 20%。</p>
+<div class="box warn"><span class="bi">!</span><div><b>一个目标冲突要提前说：</b> SMART 目标要求邀请付费占比每月 ≥ 25%，但模型全年只有 23.1% <span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span>。前几个月在付用户少、发出的邀请少，占比偏低是正常的；所以第 7 条的红线放在 20%，前 3 个收费月只亮黄灯、不执行预案。</div></div>
+<h2 class="h1" id="s5">归因方法</h2>
+<p>结论：<b>不追求精确归因，追求“不被平台数据骗”。</b> 用户少、渠道少，最可靠的是申请表自报来源 + 专属邀请码，再用 MER 看全局 <span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span>。</p>
+<div class="tw"><table><colgroup><col style="width:20.0%"><col style="width:40.0%"><col style="width:20.0%"><col style="width:20.0%"></colgroup><thead><tr><th>对象</th><th>怎么做</th><th>看什么</th><th>不做什么</th></tr></thead><tbody><tr><td>付费媒体（投流、付费博主）</td><td>UTM + 下载包渠道号；每位博主一个专属邀请码前缀；每季度做一次“关停一个渠道”的增量测试（关 2 周，看申请量掉多少）</td><td>渠道 CAC、增量申请</td><td>平台后台数据只看趋势，不加总</td></tr><tr><td>免费媒体（自有账号、知乎、社群、推荐）</td><td>申请表必填“从哪里知道我们”；邀请码记录邀请人；社群分享用现场专属码</td><td>各来源的申请 → 试用 → 付费</td><td>不把自然流量算到付费渠道头上</td></tr><tr><td>AI 回答（GEO）</td><td>每季度抽样 50 个问题，分别问豆包、DeepSeek、元宝、Kimi，记录是否提到司徒</td><td>AI 提及率</td><td>不只看一个平台</td></tr><tr><td>整体</td><td>MER = 现金收入 ÷ 营销费用；模型全年预测约 234 倍</td><td>MER 的月度趋势</td><td>不受归因口径影响，所以作为总闸</td></tr></tbody></table></div>
+<p>依据：百度搜索份额从 86.8% 降至 55.9% <sup class="ref"><a href="#src-S160" title="huxiu.com · AI重新激活搜索赛道后，百度的压力更大了-虎嗅网">S160</a></sup>，有购买需求时 59% 的 Z 世代会先问 AI <sup class="ref"><a href="#src-S346" title="埃森哲 Accenture（埃森哲商业研究院） · 确定性：Z世代的新坐标｜埃森哲中国消费者洞察（用户提供 PDF；2025 年中国消费者调研 N=5,000，其中 18–29 岁 N=988，2025-08/09 在线问卷）">S346</a></sup>，所以 AI 提及率要和搜索量一起看。</p>
+<h3 class="h2" id="s5-1">申请表“从哪里知道我们”选项</h3>
+<div class="tw"><table><colgroup><col style="width:41.7%"><col style="width:33.3%"><col style="width:25.0%"></colgroup><thead><tr><th>选项</th><th>对应科目</th><th>邀请码前缀（建议）<span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></th></tr></thead><tbody><tr><td>朋友 / 同事推荐（填邀请码）</td><td>推荐奖励与创始用户</td><td>用户个人码</td></tr><tr><td>小红书 / 抖音 / 公众号上的司徒账号</td><td>自有账号内容</td><td>无（自报）</td></tr><tr><td>博主 / 播客推荐</td><td>博主合作</td><td>KOL-博主简称</td></tr><tr><td>创业社群、OPC 社区、线下分享</td><td>OPC 社群与线下分享</td><td>OPC-场次</td></tr><tr><td>知乎、搜索</td><td>知乎、SEO 与 GEO</td><td>无（自报）</td></tr><tr><td>问 AI 时看到</td><td>知乎、SEO 与 GEO</td><td>无（自报）</td></tr><tr><td>广告</td><td>投流机动金</td><td>UTM / 渠道包</td></tr><tr><td>其他（填写）</td><td>待归类</td><td>无</td></tr></tbody></table></div>
+<h3 class="h2" id="s5-2">AI 提及率抽样规程</h3>
+<div class="tw"><table><colgroup><col style="width:20.0%"><col style="width:80.0%"></colgroup><thead><tr><th>项目</th><th>做法</th></tr></thead><tbody><tr><td>问题池</td><td>50 个，按 5 类各 10 个：“一人公司用什么 AI”“小团队怎么管项目资料”“效率焦虑怎么办”“本地 AI 助理推荐”“AI 写东西不像自己怎么办” <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr><tr><td>平台</td><td>豆包、DeepSeek、元宝、Kimi（计划指定）</td></tr><tr><td>记录</td><td>是否提到司徒；是否排在前 3；描述是否准确（价格、档位、“本地优先”说法）；引用了哪个页面</td></tr><tr><td>指标</td><td>提及率 = 提到司徒的回答数 ÷ 200（50 题 × 4 平台）；另记“前 3 提及率”和“描述错误数”</td></tr><tr><td>频率与基线</td><td>每季度一次；第一次在 2026-12 做，作为基线（预期为 0）</td></tr><tr><td>负责人</td><td>推广负责人执行，芒果汇总</td></tr></tbody></table></div>
+<h2 class="h1" id="s6">品牌健康追踪</h2>
+<p>品牌健康不是虚的：对邀请制产品，<b>被记住、被推荐</b>直接决定候补申请量，而申请量才是瓶颈（不是放号名额）<span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span>。目标值计划里没有，下表的目标为我们建议 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span>，2026-12 测基线后再定。</p>
+<div class="tw"><table><colgroup><col style="width:16.7%"><col style="width:22.2%"><col style="width:22.2%"><col style="width:11.1%"><col style="width:11.1%"><col style="width:16.7%"></colgroup><thead><tr><th>指标</th><th>定义</th><th>方法</th><th>频率</th><th>基线（2026-11）</th><th>建议目标 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></th></tr></thead><tbody><tr><td>AI 回答提及率</td><td>见上方抽样规程</td><td>人工抽样 200 个回答</td><td>每季度</td><td>待测</td><td>2027-05 ≥ 10%；2027-11 ≥ 25%</td></tr><tr><td>品牌搜索量</td><td>“司徒 Situ”“司徒 AI 助理”等词的搜索与站内搜索</td><td>百度指数 / 小红书、抖音站内搜索联想</td><td>每月</td><td>待测</td><td>逐季上升</td></tr><tr><td>未提示知名度（目标人群内）</td><td>不给提示时能说出司徒的比例</td><td>OPC 社群、候补名单问卷，样本 ≥ 100</td><td>每半年</td><td>待测</td><td>建立基线后定</td></tr><tr><td>口碑提及量与正负面占比</td><td>小红书 / 知乎 / B 站提到司徒的帖子数，正面、中性、负面占比</td><td>人工检索 + 打标</td><td>每月</td><td>待测</td><td>负面 &lt; 10%</td></tr><tr><td>NPS</td><td>“你有多大可能推荐给朋友”0–10 分</td><td>付费第 30 天问卷</td><td>每月</td><td>待测</td><td>≥ 50（H1）</td></tr><tr><td>自有账号粉丝</td><td>小红书 + 抖音 + 公众号合计</td><td>后台</td><td>每月</td><td>待填</td><td>2027-06-30 ≥ 2 万</td></tr><tr><td>候补名单累计</td><td>提交申请并通过初筛的人数</td><td>申请表后台</td><td>每周</td><td>待填</td><td>2027-03-31 ≥ 2,000</td></tr><tr><td>称呼认同</td><td>用户自称“一人公司 / 小团队”的比例</td><td>封闭测试访谈记录</td><td>封闭测试一次</td><td>待测</td><td>过半认同即沿用</td></tr><tr><td>口径合规</td><td>对外内容是否出现品牌手册 v0.14 A1.10 列出的禁用说法与夸大宣称</td><td>抽查 20 条内容</td><td>每月</td><td>待测</td><td>0 条</td></tr></tbody></table></div>
+<h2 class="h1" id="s7">指标字典</h2>
+<p>每个指标只有一个口径、一个数据源、一个负责人。口径改了要在复盘报告里写明，否则前后月不可比。负责人按计划 7.2–7.3 的分工 <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup>。</p>
+<div class="tw"><table><colgroup><col style="width:17.6%"><col style="width:41.2%"><col style="width:17.6%"><col style="width:11.8%"><col style="width:11.8%"></colgroup><thead><tr><th>指标</th><th>定义与口径</th><th>数据源</th><th>频率</th><th>负责人</th></tr></thead><tbody><tr><td><b>北极星：周活 3 天在付用户</b></td><td>自然周内有 ≥ 3 天完成至少 1 个工作项、且当周处于付费状态的用户数；任务失败、被用户撤销的不算</td><td>产品埋点（工作项完成记录）+ 订阅表</td><td>每周</td><td>芒果</td></tr><tr><td>在付用户</td><td>月末处于有效付费状态的用户数（畅享版 + 尊享版）；试用、退款中的不算</td><td>收款与订阅表</td><td>每月</td><td>芒果</td></tr><tr><td>尊享在付</td><td>月末处于尊享版付费状态的用户数</td><td>订阅表</td><td>每月</td><td>芒果</td></tr><tr><td>新付费</td><td>当月首次付费的用户数（不含续费、不含升级）</td><td>收款表</td><td>每月</td><td>芒果</td></tr><tr><td>月营收</td><td>当月确认的订阅收入（含税口径另注）；退款冲减当月</td><td>收款表、财务</td><td>每月</td><td>发言人 2</td></tr><tr><td>候补申请</td><td>当月提交申请表的人数（去重手机号）</td><td>申请表后台</td><td>每周</td><td>推广负责人</td></tr><tr><td>放号试用</td><td>当月获得试用资格并激活的人数，分“公开放号”和“邀请”两类</td><td>邀请码 / 放号系统</td><td>每周</td><td>李梦</td></tr><tr><td>第 1 天激活</td><td>试用首日完成“授权一个项目文件夹 + 完成一件真实工作”的人数 ÷ 放号试用</td><td>产品埋点</td><td>每周</td><td>产品经理</td></tr><tr><td>第 4 周周活</td><td>付费后第 4 周仍有活跃（≥ 1 天）的用户占该批付费用户比例</td><td>产品埋点</td><td>每周（按批次）</td><td>产品经理</td></tr><tr><td>试用转付费</td><td>试用结束 7 天内付费的人数 ÷ 该批试用人数，公开、邀请分开算</td><td>订阅表 + 放号系统</td><td>每月</td><td>发言人 2</td></tr><tr><td>月流失率</td><td>上月末在付中，本月末未续费的比例</td><td>订阅表</td><td>每月</td><td>芒果</td></tr><tr><td>邀请付费占比</td><td>当月新付费中通过邀请码进入的比例</td><td>邀请码系统</td><td>每月</td><td>推广负责人</td></tr><tr><td>渠道 CAC</td><td>某渠道花费 ÷ 该渠道带来的新付费（按邀请码 / 自报来源归属）</td><td>花费台账 + 申请表</td><td>每周</td><td>推广负责人</td></tr><tr><td>全成本 CAC</td><td>当月营销费用合计 ÷ 当月新付费</td><td>花费台账</td><td>每月</td><td>推广负责人</td></tr><tr><td>LTV / CAC、回本月数</td><td>LTV =（ARPU − 月算力成本）÷ 月流失，模型约 ¥27,475；回本月数 = CAC ÷ 单用户月毛利</td><td>上述指标推算</td><td>每季度</td><td>发言人 2</td></tr><tr><td>MER</td><td>累计现金收入 ÷ 累计营销费用</td><td>财务 + 花费台账</td><td>每月</td><td>发言人 1</td></tr><tr><td>每在付月算力成本</td><td>当月模型调用费用 ÷ 在付用户</td><td>云服务账单</td><td>每月</td><td>李梦</td></tr><tr><td>尊享流程 1 日交付率</td><td>尊享版专属流程需求在 1 个工作日内交付的比例</td><td>服务工单</td><td>每月</td><td>elle</td></tr><tr><td>升级率</td><td>畅享版用户当月升级尊享版的比例</td><td>订阅表</td><td>每月</td><td>发言人 2</td></tr><tr><td>分成渠道</td><td>推广者数、人均带来付费用户、退款率（分成伙伴开放后）</td><td>分成结算表</td><td>每月</td><td>推广负责人</td></tr><tr><td>品牌与口碑指标</td><td>见“品牌健康追踪”</td><td>抽样与检索</td><td>每月 / 每季</td><td>推广负责人</td></tr></tbody></table></div>
+<p class="note">埋点边界：只记录活跃天数、工作项数、邀请码使用等行为数据，不读取、不上传用户文件内容用于营销或训练（计划第 ⑤ 部分首方数据规则）。</p>
+<h3 class="h2" id="s7-1">看板节奏</h3>
+<div class="tw"><table><colgroup><col style="width:21.4%"><col style="width:42.9%"><col style="width:35.7%"></colgroup><thead><tr><th>会议</th><th>看哪几块</th><th>产出</th></tr></thead><tbody><tr><td>周会（数据看板）</td><td>北极星、第 1 天激活、第 4 周周活、渠道 CAC、预警灯</td><td>红黄灯责任人与动作</td></tr><tr><td>月度预算会</td><td>月度目标与实际、漏斗、MER、邀请占比</td><td>《月度复盘报告》、调仓决定（单次 ≤ 当季余额 20%）</td></tr><tr><td>季度复盘</td><td>三级目标进度、品牌健康、AI 提及率、H1–H9 进展</td><td>回写目标与人群定位</td></tr></tbody></table></div>
+<h2 class="h1" id="s8">附：证据等级与数据来源</h2>
+<div class="evgrid"><div><span class="ev eva"><i>A</i>已验证</span><p>多个独立来源一致，或有公司实际数据支撑。可以直接作为决策依据。</p></div><div><span class="ev evb"><i>B</i>有依据的推断</span><p>有数据指向，但样本或口径有限。可以用来做计划，需要继续观察。</p></div><div><span class="ev evc"><i>C</i>假设</span><p>暂无数据支撑。先小规模测试，再决定是否放大（进入《测试计划》）。</p></div></div>
+<p class="note">S 编号与《营销计划 V13》附录 A 一致，M 编号为公司内部资料。点正文中的编号可以跳到这里。</p><div class="tw"><table class="src"><thead><tr><th>编号</th><th>发布方</th><th>标题 / 链接</th><th>日期</th></tr></thead><tbody><tr id="src-S276"><td class="nw"><b>S276</b></td><td>woshipm.com</td><td><a href="https://www.woshipm.com/ai/6398494.html" target="_blank" rel="noopener noreferrer">每天用AI的人，付费意愿是低频者的13倍：你被AI“绑架”了吗？ | 人人都是产品经理</a></td><td class="nw">2026-11-13</td></tr><tr id="src-M3"><td class="nw"><b>M3</b></td><td>公司内部资料</td><td><a href="https://javis-hnw-minutes.accrepo.com/" target="_blank" rel="noopener noreferrer">会议纪要：目标人群与定价策略（2026-11-13）</a></td><td class="nw">2026-11</td></tr><tr id="src-M4"><td class="nw"><b>M4</b></td><td>公司内部资料</td><td><a href="https://javis-minutes-1118.accrepo.com/" target="_blank" rel="noopener noreferrer">会议纪要：晨会：产品定位、核心能力与定价（2026-11-18）</a></td><td class="nw">2026-11</td></tr><tr id="src-S160"><td class="nw"><b>S160</b></td><td>huxiu.com</td><td><a href="https://www.huxiu.com/article/4790422.html" target="_blank" rel="noopener noreferrer">AI重新激活搜索赛道后，百度的压力更大了-虎嗅网</a></td><td class="nw">2026-11-13</td></tr><tr id="src-S346"><td class="nw"><b>S346</b></td><td>埃森哲 Accenture（埃森哲商业研究院）</td><td><a href="https://www.accenture.cn/content/dam/accenture/final/accenture-com/document-fy26/The-certainty-economy-Chinas-Gen-Z-CN-Accenture-Chinese-Consumer-Insights.pdf" target="_blank" rel="noopener noreferrer">确定性：Z世代的新坐标｜埃森哲中国消费者洞察（用户提供 PDF；2025 年中国消费者调研 N=5,000，其中 18–29 岁 N=988，2025-08/09 在线问卷）</a></td><td class="nw">2026</td></tr></tbody></table></div><nav class="pager"><a href="d06.html">← 06 预算排期表</a><a href="index.html">全部交付物</a><a href="d08.html">08 月度复盘报告 →</a></nav></main></div>
+<footer>司徒 Situ · 营销交付物 · 依据《营销计划 V13（两档定价）》、品牌手册 v0.14 与服务说明 v0.26 · 编制：[公司名称] · 证据等级：A 已验证 / B 有依据的推断 / C 假设</footer>
+<script>
+(function(){var links=[].slice.call(document.querySelectorAll('.toc a'));var hs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+function on(){var y=window.scrollY+120,k=0;hs.forEach(function(h,i){if(h&&h.offsetTop<=y)k=i});links.forEach(function(a,i){a.classList.toggle('on',i===k)})}
+window.addEventListener('scroll',on,{passive:true});on();
+document.querySelectorAll('sup.ref a').forEach(function(a){a.addEventListener('click',function(){var t=document.querySelector(a.getAttribute('href'));if(t){t.classList.add('hl');setTimeout(function(){t.classList.remove('hl')},2500)}})});})();
+</script><script>
+(function(){
+var MONTHS=['2026-12','2027-01','02','03','04','05','06','07','08','09','10','11'];
+var ITEMS=[
+ {k:'own',name:'自有账号内容（小红书 / 抖音 / 公众号养号）',pct:35,c:'#2f6bff',acq:true,m:[14,12,4,10,8,7,7,8,7,8,8,7],
+  subs:[['vid','真实工作流短视频（团队自制，含剪辑外包）',55,'每周 2–3 条'],['post','图文笔记与公众号长文',25,''],['tool','账号运营工具与素材',20,'']]},
+ {k:'kol',name:'效率与一人公司博主合作',pct:15,c:'#ff8a3d',acq:true,m:[0,10,0,15,10,10,10,10,10,10,10,5],
+  subs:[['kxhs','小红书 / 即刻中腰部博主（试用 + 分成为主）',70,'',800],['kpod','创业与效率播客、公众号',30,'',2000]]},
+ {k:'comm',name:'OPC 社群与线下分享',pct:10,c:'#7b61ff',acq:true,m:[10,10,2,12,10,8,8,8,8,8,8,8],
+  subs:[['opc','OPC 社区 / 创业营分享（物料、场地分摊）',60,''],['group','用户社群运营',40,'']]},
+ {k:'seo',name:'知乎、SEO 与 GEO',pct:10,c:'#00b3a4',acq:true,m:[15,12,6,12,8,7,7,7,6,7,7,6],
+  subs:[['zhihu','知乎“一人公司 AI 工具”“效率焦虑”话题回答',45,'创始人亲写'],['geo','GEO：结构化 FAQ 与对比页',55,'']]},
+ {k:'inc',name:'推荐奖励与创始用户',pct:5,c:'#c8961e',acq:true,m:[20,15,0,10,5,5,10,5,5,5,10,10],
+  subs:[['gift','创始用户礼物与共创会',60,''],['ref','推荐奖励（免费周按算力计，现金部分）',40,'']]},
+ {k:'trust',name:'合规与财税咨询',pct:15,c:'#14213d',acq:false,m:[50,30,0,10,0,0,0,0,0,10,0,0],
+  subs:[['legal','律师审核协议、隐私政策与生成式 AI 登记',50,'收费前完成'],['tax','财税顾问：主体、收款、跨境数据方案',50,'收费前完成']]},
+ {k:'reserve',name:'投流机动金（粘性验证后释放）',pct:10,c:'#b9c3d6',acq:false,m:[0,0,0,0,10,15,15,15,15,10,10,10],
+  subs:[['gate','H1、H9 通过后用于小红书 / 抖音投流',100,'2027-03 闸门后']]}
+];
+var DEF_PCT={};ITEMS.forEach(function(i){DEF_PCT[i.k]=i.pct;});
+var AF=[
+ ['cpw','每个候补申请成本（元，2 万预算时）',15,1,'n'],
+ ['el','规模弹性（预算翻倍成本上升）',0.15,0.01,'n'],
+ ['org','自有账号自然流量加成（相对付费内容）',1.5,0.1,'p'],
+ ['seed','种子邀请试用（团队人脉，2026-12 至 2027-01）',60,5,'n'],
+ ['quota','每月公开试用名额上限（候补 → 试用）',300,10,'n'],
+ ['trialConv','公开试用转付费率',0.20,0.01,'p'],
+ ['invPer','每个在付用户每月发出邀请（终身上限 3 人）',0.12,0.01,'n'],
+ ['invConv','被邀请人试用转付费率',0.35,0.01,'p'],
+ ['churn','月流失率',0.04,0.005,'p'],
+ ['pPro','畅享版（元/月）',999,1,'n'],
+ ['pFlag','尊享版（元/月）',1999,1,'n'],
+ ['mixFlag','付费中尊享版占比（暂定）',0.30,0.01,'p'],
+ ['svcStaff','尊享版专属服务人员（人，暂定）',2,1,'n'],
+ ['cost','每在付用户月算力成本（元）',200,10,'n'],
+ ['payStart','开始收费的月份序号（0=2026-12，1=2027-01）',1,1,'n'],
+ ['target','月营收目标（元）',500000,10000,'n']
+];
+var DEF_A={};AF.forEach(function(a){DEF_A[a[0]]=a[2];});
+var S={B:20000,pct:Object.assign({},DEF_PCT),A:Object.assign({},DEF_A)};
+var LAUNCH=3; // 2027-03 正式销售（分成伙伴与团队单从这个月开始）
+
+// 价格接受度曲线：S272 两点拟合（职场人单工具月费上限 ≥¥50 占 24.8%，≥¥200 占 4.3%）
+var WTP=(function(){var l1=Math.log((1-0.248)/0.248),l2=Math.log((1-0.043)/0.043),b=(l2-l1)/Math.log(200/50),M=50/Math.exp(l1/b);return {M:M,b:b};})();
+function accept(p){return 1/(1+Math.pow(Math.max(p,0.01)/WTP.M,WTP.b));}
+function model(B,pct,A){
+ var v={B:B},sum=0,pool=0;
+ ITEMS.forEach(function(i){var a=B*(pct[i.k]||0)/100;v['it_'+i.k]=a;sum+=a;if(i.acq)pool+=a;
+  i.subs.forEach(function(s){var x=a*s[2]/100;v['sub_'+i.k+'_'+s[0]]=x;if(s[4]){v['n_'+s[0]]=x/s[4];v['u_'+s[0]]=s[4];}});});
+ v.allocSum=sum;v.pool=pool;v.kocNotes=(v.n_kxhs||0)+(v.n_kpod||0);
+ var mixFlag=Math.min(1,Math.max(0,A.mixFlag)),mixPro=1-mixFlag;
+ v.mixPro=mixPro;v.mixFlag=mixFlag;v.churn=A.churn;
+ v.avgInd=mixPro*A.pPro+mixFlag*A.pFlag;
+ v.arpu=v.avgInd;
+ v.pProT=money(A.pPro)+'/月';v.pFlagT=money(A.pFlag)+'/月';
+ v.cprEff=A.cpw*Math.pow(Math.max(B,1)/20000,A.el);
+ var aP=0,aR=0,backlog=0,pendP=0,pendR=0,tot={apps:0,pub:0,inv:0,newP:0,newR:0,rev:0,revP:0,revR:0,cost:0};
+ v.mon=[];v.rows=[];v.hit={};
+ for(var m=0;m<12;m++){
+  var t=0,acq=0;
+  ITEMS.forEach(function(i){var x=v['it_'+i.k]*i.m[m]/100;v['m_'+i.k+'_'+m]=x;t+=x;if(i.acq)acq+=x;});
+  v.mon.push(t);
+  var apps=acq/v.cprEff*(1+A.org); backlog+=apps;
+  var pub=Math.min(backlog,A.quota); backlog-=pub;
+  var seedT=m<2?A.seed/2:0;
+  var inv=(aP+aR)*A.invPer+seedT;
+  var newP=pub*A.trialConv, newR=inv*A.invConv;
+  if(m<A.payStart){pendP+=newP;pendR+=newR;newP=0;newR=0;}else if(pendP+pendR>0){newP+=pendP;newR+=pendR;pendP=0;pendR=0;}
+  aP=aP*(1-A.churn)+newP; aR=aR*(1-A.churn)+newR;
+  var act=aP+aR, flag=act*mixFlag;
+  var revP=aP*v.avgInd,revR=aR*v.avgInd,mrr=revP+revR;
+  v.rows.push({m:MONTHS[m],apps:apps,pub:pub,inv:inv,newPay:newP+newR,act:act,flag:flag,book:mrr,bookB:revP,bookR:revR,backlog:backlog});
+  tot.apps+=apps;tot.pub+=pub;tot.inv+=inv;tot.newP+=newP;tot.newR+=newR;tot.rev+=mrr;tot.revP+=revP;tot.revR+=revR;tot.cost+=act*A.cost;
+  [100000,500000,1000000].forEach(function(g){if(v.hit[g]===undefined&&mrr>=g)v.hit[g]=MONTHS[m];});
+  if(v.hit.u2000===undefined&&act>=2000)v.hit.u2000=MONTHS[m];
+ }
+ var last=v.rows[11];
+ v.regTotal=tot.pub+tot.inv;v.trialsPub=tot.pub;v.trialsInv=tot.inv;v.appsTotal=tot.apps;v.backlogEnd=last.backlog;
+ v.payTotal=last.act;v.subsM12=last.act;v.flagM12=last.flag;v.svcStaff=A.svcStaff;v.flagPerStaff=last.flag/Math.max(A.svcStaff,1);v.bookYear=tot.rev;
+ v.bookM6=v.rows[6].book;v.bookM12=last.book;v.target=A.target;v.hitPct=v.bookM12/A.target;
+ v.firstHit=null;for(var k=0;k<12;k++){if(v.rows[k].book>=A.target){v.firstHit=MONTHS[k];break;}}
+ v.firstHitTxt=v.firstHit||'12 个月内未达到';
+ var nh=function(x){return x||'12 个月内未达到';};
+ v.hit10=nh(v.hit[100000]);v.hit50=nh(v.hit[500000]);v.hit100=nh(v.hit[1000000]);v.hitU2000=nh(v.hit.u2000);
+ v.costYear=tot.cost;v.gm=1-tot.cost/Math.max(tot.rev,1);
+ v.net=tot.rev-tot.cost-sum;
+ v.budgetPayers=tot.newP;v.refPayers=tot.newR;v.refShare=tot.newR/Math.max(tot.newP+tot.newR,1e-9);
+ v.cacBudget=sum/Math.max(tot.newP,1e-9);
+ v.ltvUnit=(v.arpu-A.cost)/Math.max(A.churn,0.001);v.lifeM=1/Math.max(A.churn,0.001);
+ v.mer=v.bookYear/Math.max(sum,1);
+ v.shareBudget=tot.revP/Math.max(tot.rev,1);v.shareRef=tot.revR/Math.max(tot.rev,1);
+ v.trialConv=A.trialConv;v.invConv=A.invConv;v.quota=A.quota;v.seed=A.seed;
+ // 2000 名长期用户需要多少试用
+ var blended=(tot.newP+tot.newR)/Math.max(tot.pub+tot.inv,1);v.blendConv=blended;
+ v.trialsFor2000=2000/Math.max(blended,1e-9);
+ v.users10=100000/v.arpu;v.users50=500000/v.arpu;v.rev2000=2000*v.arpu;
+ v.accEntry=accept(A.pPro);
+ return v;
+}
+
+function money(x){var s=x<0?'-':'';x=Math.abs(x);if(x>=1e8)return s+'¥'+(x/1e8).toFixed(2)+' 亿';if(x>=1e6)return s+'¥'+(x/1e4).toFixed(0)+' 万';return s+'¥'+Math.round(x).toLocaleString('zh-CN');}
+function fmt(x,f){
+ if(typeof x==='string')return x;
+ if(x===undefined||x===null||isNaN(x))return '待填';
+ switch(f){
+  case 'int':return Math.round(x).toLocaleString('zh-CN');
+  case 'x':return x.toFixed(1)+'×';
+  case 'pct':return (x*100).toFixed(1)+'%';
+  case 'pct0':return Math.round(x*100)+'%';
+  case 'pct3':return (x*100).toFixed(2)+'%';
+  case 'num0':return Math.round(x).toString();
+  case 'num1':return x.toFixed(1);
+  case 'signed':return (x>=0?'+':'')+money(x);
+  default:return money(x);
+ }
+}
+
+
+var MLAB=MONTHS.map(function(m){return m.length>2?m:'2027-'+m;});
+var KEY='situ_d07_kpi_v1';
+var FIELDS=[['act','在付用户'],['flag','尊享在付'],['newPay','新付费'],['book','月营收（元）'],['trials','试用量']];
+var DX=[['spend','当月营销花费合计（元）'],['paidSpend','付费渠道花费（元）'],['paidPay','付费渠道带来的新付费（人）'],['refPay','邀请码带来的新付费（人）'],
+ ['apps','候补申请（人）'],['day1','第 1 天激活（人）'],['renew','上月在付中本月续费（人）'],['invites','邀请码被使用（次）'],
+ ['ns','北极星：周活 3 天在付（周均，人）'],['wau4','第 4 周周活（%）'],['pubConv','公开试用转付费（%）'],['seedConv','封闭测试转付费（%，仅 1 月判定）'],['nps','NPS'],
+ ['abuse','异常账号占比（%）'],['compute','算力成本合计（元）'],['svc1d','尊享 1 日交付率（%）'],['aiMention','AI 提及率（%，季度）']];
+function blank(){return {B:20000,scen:'base',g:95,r:80,sel:1,act:{},dx:{}};}
+var ST=blank();
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);ST=Object.assign(blank(),o);}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(ST));}catch(e){}stamp();}
+function num(v){if(v===''||v===undefined||v===null)return null;var x=parseFloat(String(v).replace(/[,，¥\s]/g,''));return isFinite(x)?x:null;}
+function getA(m,k){var o=ST.act[m];return o?num(o[k]):null;}
+function getD(m,k){var o=ST.dx[m];return o?num(o[k]):null;}
+function scenA(s){var A=Object.assign({},DEF_A);if(s==='down'){var f=accept(999)/accept(499);A.trialConv*=f;A.invConv*=f;}return A;}
+function run(B,s){return model(B,DEF_PCT,scenA(s));}
+function tgt(V,m,k){var r=V.rows[m];return k==='trials'?r.pub+r.inv:r[k];}
+function i0(x){return Math.round(x).toLocaleString('zh-CN');}
+function pc(x,d){return (x*100).toFixed(d||0)+'%';}
+function cls(rate){if(rate===null)return 'na';return rate>=ST.g/100?'ok':(rate>=ST.r/100?'warn':'bad');}
+function dot(c){return '<span class="dot d-'+c+'"></span>';}
+var TXT={ok:'正常',warn:'关注',bad:'预警',na:'未填'};
+function churnOf(V,m){if(m<1)return null;var prev=getA(m-1,'act');if(prev===null||prev<=0)return null;var rn=getD(m,'renew');
+ if(rn!==null)return {v:1-rn/prev,src:'按续费数'};var cur=getA(m,'act'),np=getA(m,'newPay');if(cur===null||np===null)return null;return {v:(prev+np-cur)/prev,src:'按在付变化估算'};}
+function band(v,g,r,hi){/* hi=true: 越高越好 */ if(v===null)return 'na';if(hi)return v>=g?'ok':(v>=r?'warn':'bad');return v<=g?'ok':(v<=r?'warn':'bad');}
+function alerts(V,m){
+ var L=[],ps=getD(m,'paidSpend'),pp=getD(m,'paidPay');
+ var cac=(ps!==null&&pp!==null&&pp>0)?ps/pp:null;
+ L.push(['付费渠道 CAC',cac===null?'待填':money(cac),'≤ '+money(V.cacBudget)+' 绿；> '+money(V.cacBudget*1.5)+' 连续 2 周红',cac===null?'na':(cac<=V.cacBudget?'ok':(cac<=V.cacBudget*1.5?'warn':'bad')),'暂停该渠道，预算转 OPC 社区与团队演示']);
+ var ch=churnOf(V,m);L.push(['月流失率',ch?pc(ch.v,1)+'（'+ch.src+'）':'待填','≤ 3% 绿；> 4% 红',ch?band(ch.v,0.03,0.04,false):'na','暂停投流，先改留存']);
+ var w=getD(m,'wau4');L.push(['第 4 周周活',w===null?'待填':w+'%','≥ 65% 绿；< 60% 红',w===null?'na':band(w,65,60,true),'不收费放量，先改产品']);
+ var sc=getD(m,'seedConv');L.push(['封闭测试转付费（H1）',sc===null?'待填':sc+'%','≥ 35% 绿；< 30% 红',sc===null?'na':band(sc,35,30,true),'不收费放量，先改产品']);
+ var nps=getD(m,'nps');L.push(['NPS',nps===null?'待填':String(nps),'≥ 55 绿；< 50 红',nps===null?'na':band(nps,55,50,true),'回访差评用户，修第 1 天体验']);
+ var pcv=getD(m,'pubConv');
+ L.push(['公开试用转付费（H2）',pcv===null?'待填':pcv+'%','≥ '+pc(DEF_A.trialConv)+' 绿；< 15% 红',pcv===null?'na':band(pcv,DEF_A.trialConv*100,15,true),'管理层复议试用方式、两档差异']);
+ var rp=getD(m,'refPay'),np2=getA(m,'newPay');var rs=(rp!==null&&np2)?rp/np2:null;
+ L.push(['邀请付费占比',rs===null?'待填':pc(rs,1),'≥ 25% 绿；< 20% 红（前 3 个收费月只看黄灯）',rs===null?'na':(m<=3&&rs<0.2?'warn':band(rs,0.25,0.2,true)),'检查邀请码发放与推荐奖励']);
+ var ab=getD(m,'abuse');L.push(['异常账号占比（H4）',ab===null?'待填':ab+'%','< 1% 绿；≥ 2% 红',ab===null?'na':(ab<1?'ok':(ab<2?'warn':'bad')),'收紧放号或调整邀请数']);
+ var cp=getD(m,'compute'),act=getA(m,'act');var cu=(cp!==null&&act)?cp/act:null;
+ L.push(['每在付月算力成本（H6）',cu===null?'待填':money(cu),'≤ '+money(DEF_A.cost)+' 绿；> ¥300 红',cu===null?'na':band(cu,DEF_A.cost,300,false),'调整模型路由或工作项额度']);
+ var sv=getD(m,'svc1d');L.push(['尊享 1 日交付率（H7）',sv===null?'待填':sv+'%','≥ 90% 绿；< 80% 红',sv===null?'na':band(sv,90,80,true),'增加服务人员或限制尊享名额']);
+ var bk=getA(m,'book'),tb=tgt(V,m,'book');var br=(bk!==null&&tb>0)?bk/tb:null;
+ L.push(['月营收达成率',br===null?(tb>0?'待填':'本月不考核'):pc(br),'≥ '+ST.g+'% 绿；< '+ST.r+'% 红',cls(br),'复盘做问题诊断，下月调仓']);
+ return L;}
+var V=null;
+function $(id){return document.getElementById(id);}
+function stamp(){var n=0;Object.keys(ST.act).forEach(function(m){FIELDS.forEach(function(f){if(getA(m,f[0])!==null)n++;});});
+ Object.keys(ST.dx).forEach(function(m){DX.forEach(function(f){if(getD(m,f[0])!==null)n++;});});
+ $('k-save').textContent=n?('已填写 '+n+' 个实际值，自动保存在本机浏览器。'):'尚未填写实际值。';}
+function buildMonths(){$('k-mon').innerHTML=MLAB.map(function(l,i){return '<button data-m="'+i+'"'+(i==ST.sel?' class="on"':'')+'>'+l+'</button>';}).join('');}
+function buildTable(){var h='';for(var m=0;m<12;m++){h+='<tr data-row="'+m+'"'+(m==ST.sel?' class="cur"':'')+'><td>'+MLAB[m]+'</td>';
+ FIELDS.forEach(function(f){var v=getA(m,f[0]);h+='<td><div class="tg">目标 <b id="t-'+m+'-'+f[0]+'"></b></div><input inputmode="decimal" data-m="'+m+'" data-k="'+f[0]+'" value="'+(v===null?'':v)+'" placeholder="实际"><div class="rt" id="r-'+m+'-'+f[0]+'"></div></td>';});
+ h+='</tr>';}$('k-month').tBodies[0].innerHTML=h;}
+function buildDx(){var m=ST.sel;$('k-dx').innerHTML=DX.map(function(f){var v=getD(m,f[0]);return '<label>'+f[1]+'<input inputmode="decimal" data-dx="'+f[0]+'" value="'+(v===null?'':v)+'" placeholder="'+MLAB[m]+'"></label>';}).join('');}
+function card(v,l,c){return '<div class="cardk '+(c||'')+'"><div class="v">'+v+'</div><div class="l">'+l+'</div></div>';}
+function refresh(){
+ V=run(ST.B,ST.scen);var m=ST.sel;
+ for(var i=0;i<12;i++)FIELDS.forEach(function(f){var t=tgt(V,i,f[0]),a=getA(i,f[0]);
+  $('t-'+i+'-'+f[0]).textContent=f[0]==='book'?money(t):i0(t);
+  var r=$('r-'+i+'-'+f[0]);if(a===null){r.innerHTML='';return;}
+  if(t<0.5){r.innerHTML=dot('na')+'目标为 0，不考核';return;}var rate=a/t;r.innerHTML=dot(cls(rate))+'达成 '+pc(rate);});
+ [].forEach.call(document.querySelectorAll('#k-month tbody tr'),function(tr){tr.className=(+tr.getAttribute('data-row')===m)?'cur':'';});
+ // cards
+ var a=function(k){return getA(m,k);};var c='';
+ var nsT=tgt(V,m,'act')*0.6,ns=getD(m,'ns');
+ c+=card((ns===null?'待填':i0(ns))+' / '+i0(nsT),'北极星：周活 3 天在付（实际 / 目标）',ns===null||nsT<0.5?'':cls(ns/nsT));
+ [['act','在付用户'],['book','月营收'],['newPay','新付费']].forEach(function(f){var t=tgt(V,m,f[0]),x=a(f[0]);var fm=f[0]==='book'?money:i0;
+  c+=card((x===null?'待填':fm(x))+' / '+fm(t),f[1]+'（实际 / 目标）'+(x!==null&&t>0.5?' · 达成 '+pc(x/t):''),x===null||t<0.5?'':cls(x/t));});
+ var ch=churnOf(V,m);c+=card(ch?pc(ch.v,1):'待填','月流失（红线 4%）',ch?band(ch.v,0.03,0.04,false):'');
+ var cr=0,cs=0,mr=0,ms=0,ok=false;for(var i=0;i<=m;i++){var b=getA(i,'book'),s=getD(i,'spend');mr+=V.rows[i].book;ms+=V.mon[i];if(b!==null&&s!==null){cr+=b;cs+=s;ok=true;}}
+ c+=card(ok&&cs>0?(cr/cs).toFixed(1)+' 倍':'待填','累计 MER（模型同期 '+(ms>0?(mr/ms).toFixed(1):'0')+' 倍）','');
+ $('k-cards').innerHTML=c;
+ // tiers
+ var streak=0;for(var j=m;j>=0;j--){var bb=getA(j,'book');if(bb!==null&&bb>=100000)streak++;else break;}
+ var bk=a('book'),ac=a('act');
+ function tier(name,p,txt,mk){p=Math.max(0,Math.min(1,p||0));return '<div class="tier"><b>'+name+'</b><div class="bar"><i style="width:'+(p*100).toFixed(1)+'%"></i>'+(mk?'<b style="left:'+mk+'%"></b>':'')+'</div><span class="note">'+txt+'</span></div>';}
+ $('k-tier').innerHTML=tier('阶段一 ¥10 万 × 3 月',streak/3,'连续达标 '+streak+' / 3 个月（截止 2027-04-30；模型 '+(V.hit10.length>2?V.hit10:'2027-'+V.hit10)+' 首次达到）')
+  +tier('阶段二 ¥50 万/月',bk===null?0:bk/500000,(bk===null?'当月营收待填':money(bk)+'，'+pc(bk/500000))+'；竖线为 ¥40 万考核线；模型 '+(V.hit50.length===2?'2027-'+V.hit50:V.hit50),80)
+  +tier('阶段三 2,000 名用户',ac===null?0:ac/2000,(ac===null?'当月在付待填':i0(ac)+' 人，'+pc(ac/2000,1))+'；2028 年目标；模型第 12 个月 '+i0(V.subsM12)+' 人');
+ // funnel
+ var prevAct=m>0?V.rows[m-1].act:0;
+ var F=[['候补申请',V.rows[m].apps,getD(m,'apps')],['放号试用',tgt(V,m,'trials'),a('trials')],['第 1 天激活',null,getD(m,'day1')],['付费',V.rows[m].newPay,a('newPay')],
+  ['次月续费',prevAct*(1-DEF_A.churn),getD(m,'renew')],['邀请',V.rows[m].inv,getD(m,'invites')]];
+ var mx=1;F.forEach(function(r){if(r[1])mx=Math.max(mx,r[1]);if(r[2])mx=Math.max(mx,r[2]);});
+ var fh='<p class="note">橙条 = 实际，虚线 = 模型参考。第 1 天激活暂无模型参考（待 H1 封闭测试后设定）；“次月续费”参考 = 上月模型在付 × (1 − 月流失 '+pc(DEF_A.churn)+')；“邀请”参考 = 模型邀请试用人数（含种子用户）。</p>';
+ F.forEach(function(r,i){var conv='';if(i>0&&r[2]!==null&&F[i-1][2]){conv='，较上一步 '+pc(r[2]/F[i-1][2],1);}
+  if(i===4&&r[2]!==null){var pa=m>0?getA(m-1,'act'):null;conv=pa?'，续费率 '+pc(r[2]/pa,1):'';}
+  if(i===5&&r[2]!==null){conv='';}
+  fh+='<div class="fun"><b>'+r[0]+'</b><div class="tr">'+(r[2]!==null?'<i style="width:'+(r[2]/mx*100).toFixed(1)+'%"></i>':'')+(r[1]!==null?'<s style="width:'+(r[1]/mx*100).toFixed(1)+'%"></s>':'')+'</div><span>实际 '+(r[2]===null?'待填':i0(r[2]))+' · 参考 '+(r[1]===null?'待设定':i0(r[1]))+conv+'</span></div>';});
+ $('k-funnel').innerHTML=fh;
+ // alerts
+ $('k-alert').tBodies[0].innerHTML=alerts(V,m).map(function(r){return '<tr><td>'+r[0]+'</td><td class="nw">'+r[1]+'</td><td>'+r[2]+'</td><td class="nw">'+dot(r[3])+'<span class="'+(r[3]==='ok'?'ok-t':r[3]==='warn'?'warn-t':r[3]==='bad'?'bad-t':'')+'">'+TXT[r[3]]+'</span></td><td>'+r[4]+'</td></tr>';}).join('');
+ // sums
+ var sh='';FIELDS.forEach(function(f){if(f[0]==='act'||f[0]==='flag')return;var tot=0,fa=0,ft=0,n=0;for(var i=0;i<12;i++){var t=tgt(V,i,f[0]);tot+=t;var x=getA(i,f[0]);if(x!==null){fa+=x;ft+=t;n++;}}
+  var fm=f[0]==='book'?money:i0;sh+='<tr><td>'+f[1]+'</td><td>'+fm(tot)+'</td><td>'+(n?fm(fa)+'（'+n+' 个月）':'待填')+'</td><td>'+(n?fm(ft):'待填')+'</td><td>'+(n&&ft>0?dot(cls(fa/ft))+pc(fa/ft):'待填')+'</td></tr>';});
+ sh+='<tr><td>第 12 个月在付 / 尊享在付</td><td>'+i0(V.subsM12)+' / '+i0(V.flagM12)+'</td><td colspan="3">全年营收 '+money(V.bookYear)+'；MER '+V.mer.toFixed(0)+' 倍；邀请付费占比 '+pc(V.refShare,1)+'；模型 CAC '+money(V.cacBudget)+'</td></tr>';
+ $('k-sum').tBodies[0].innerHTML=sh;
+ stamp();
+}
+function download(name,text,type){var b=new Blob([text],{type:type});var u=URL.createObjectURL(b);var x=document.createElement('a');x.href=u;x.download=name;document.body.appendChild(x);x.click();setTimeout(function(){URL.revokeObjectURL(u);x.remove();},500);}
+function csv(){var V2=run(ST.B,ST.scen);var L=['月份,'+FIELDS.map(function(f){return f[1]+'目标,'+f[1]+'实际';}).join(',')+','+DX.map(function(f){return f[1].replace(/,/g,' ');}).join(',')];
+ for(var m=0;m<12;m++){var r=[MLAB[m]];FIELDS.forEach(function(f){r.push(Math.round(tgt(V2,m,f[0])));var x=getA(m,f[0]);r.push(x===null?'':x);});DX.forEach(function(f){var x=getD(m,f[0]);r.push(x===null?'':x);});L.push(r.join(','));}
+ return '\ufeff'+L.join('\n');}
+function init(){
+ $('k-budget').value=ST.B;$('k-g').value=ST.g;$('k-r').value=ST.r;
+ [].forEach.call(document.querySelectorAll('#k-scen button'),function(b){b.classList.toggle('on',b.getAttribute('data-s')===ST.scen);});
+ buildMonths();buildTable();buildDx();refresh();
+ $('k-budget').addEventListener('input',function(){var x=num(this.value);if(x!==null&&x>0){ST.B=x;save();refresh();}});
+ $('k-g').addEventListener('input',function(){var x=num(this.value);if(x!==null){ST.g=x;save();refresh();}});
+ $('k-r').addEventListener('input',function(){var x=num(this.value);if(x!==null){ST.r=x;save();refresh();}});
+ $('k-scen').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ST.scen=b.getAttribute('data-s');[].forEach.call(this.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b);});save();refresh();});
+ $('k-mon').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ST.sel=+b.getAttribute('data-m');buildMonths();buildDx();save();refresh();});
+ $('k-month').addEventListener('input',function(e){var t=e.target;if(!t.getAttribute('data-k'))return;var m=t.getAttribute('data-m');ST.act[m]=ST.act[m]||{};ST.act[m][t.getAttribute('data-k')]=t.value.trim();save();refresh();});
+ $('k-dx').addEventListener('input',function(e){var t=e.target,k=t.getAttribute('data-dx');if(!k)return;var m=ST.sel;ST.dx[m]=ST.dx[m]||{};ST.dx[m][k]=t.value.trim();save();refresh();});
+ $('k-exp').addEventListener('click',function(){download('司徒Situ_KPI实际值_'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(ST,null,1),'application/json');});
+ $('k-csv').addEventListener('click',function(){download('司徒Situ_KPI月度表.csv',csv(),'text/csv;charset=utf-8');});
+ $('k-imp').addEventListener('click',function(){$('k-file').click();});
+ $('k-file').addEventListener('change',function(){var f=this.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result);if(!o||typeof o!=='object'||!o.act)throw 0;ST=Object.assign(blank(),o);save();init2();}catch(e){alert('文件格式不对：需要本页导出的 JSON。');}};rd.readAsText(f);this.value='';});
+ $('k-clr').addEventListener('click',function(){if(confirm('清空所有已填的实际值？建议先导出 JSON 备份。')){ST.act={};ST.dx={};save();init2();}});
+}
+function init2(){$('k-budget').value=ST.B;$('k-g').value=ST.g;$('k-r').value=ST.r;[].forEach.call(document.querySelectorAll('#k-scen button'),function(b){b.classList.toggle('on',b.getAttribute('data-s')===ST.scen);});buildMonths();buildTable();buildDx();refresh();}
+window.D07={run:run,alerts:alerts,state:function(){return ST;},refresh:refresh,csv:csv};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+</body></html>

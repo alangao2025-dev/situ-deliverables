@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>预算排期表 · 司徒 Situ 营销交付物</title>
+<link rel="icon" href="favicon.svg"><link rel="stylesheet" href="assets/style.css"><style>
+.d6pct input{width:72px;font-size:14px;font-weight:700;padding:4px 6px;border:1px solid #E4CDB8;border-radius:6px;text-align:right;font-family:inherit}
+.d6pct td,.d6heat td{font-variant-numeric:tabular-nums}
+.d6btn{border:1px solid #E4CDB8;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px;font-family:inherit}.d6btn:hover{background:#FFF1E6}
+#bRange{width:220px;accent-color:#FF6A1F}
+.d6svg{border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px;margin:10px 0 18px;overflow-x:auto}
+.d6svg svg{display:block;width:100%;min-width:620px;height:auto}
+.d6svg text{font-size:11px;fill:#5E6677}
+.d6heat td.c{text-align:right;white-space:nowrap}
+.cardk .dl6{font-size:12px;margin-top:2px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.heat td,.heat th{text-align:right}.heat td:first-child,.heat th:first-child{text-align:left}
+</style></head>
+<body>
+<header class="top"><a class="logo" href="index.html"><img src="assets/logo.svg" alt=""><b>司徒 Situ</b>营销交付物</a>
+<nav class="topnav"><a href="d01.html">市场洞察报告</a><a href="d02.html">品牌定位方案</a><a href="d03.html">营销组合方案</a><a href="d04.html">价格与促销策略</a><a href="d05.html">营销行动计划</a><a href="d06.html" class=on>预算排期表</a><a href="d07.html">KPI 看板</a><a href="d08.html">月度复盘报告</a><a href="d09.html">测试计划</a><a href="d10.html">迭代建议</a></nav></header>
+<section class="hero stage-execution"><div class="in">
+<div class="crumb"><a href="index.html">交付物</a> · 执行 · 怎么落地，钱怎么花</div>
+<h1><span class="ic">06</span>预算排期表</h1><p class="sub">改预算即可重算：科目、子项、月度排期、现金曲线与营收路径</p>
+<div class="meta"><div><span>客户</span>司徒 Situ（一人公司与小团队的 AI 助理）</div><div><span>版本</span>v1.0（2026-11-23）</div><div><span>编制</span>[公司名称] · 营销策略服务</div><a class="dl" href="javascript:window.print()">打印 / 存为 PDF</a></div>
+</div></section>
+<div class="layout"><aside class="toc"><div class="tt">本页目录</div><a class="t1" href="#s1">一页结论</a><a class="t1" href="#s2">预算控制台</a><a class="t2" href="#s2-1">科目占比与金额</a><a class="t2" href="#s2-2">子项明细</a><a class="t1" href="#s3">科目 × 月份热力表</a><a class="t1" href="#s4">月度现金曲线</a><a class="t2" href="#s4-1">月营收路径</a><a class="t1" href="#s5">模型推演：逐月结果</a><a class="t1" href="#s6">调仓规则</a><a class="t1" href="#s7">读表说明</a><a class="t2" href="#s7-1">模型假设（默认值）</a><a class="t2" href="#s7-2">预算情景（默认假设）</a><a class="t1" href="#s8">附：证据等级与数据来源</a></aside>
+<main class="doc"><h2 class="h1" id="s1">一页结论</h2>
+<p>默认预算 ¥20,000。改下方的预算或科目占比，整页数字会立刻重算。模型来自计划 V13，<b>算的是方向，不是承诺</b>。</p>
+<div class="cards"><div class="cardk"><div class="v">¥20,000</div><div class="l">默认年度营销预算</div></div><div class="cardk"><div class="v">¥68.5 万</div><div class="l">第 12 个月营收（默认）<span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span></div></div><div class="cardk"><div class="v">¥468.5 万</div><div class="l">全年营收（默认）<span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span></div></div><div class="cardk"><div class="v">2027-01 / 2027-08</div><div class="l">首次达 ¥10 万 / ¥50 万</div></div></div>
+<ul><li><b>预算不是瓶颈，放号名额和转化率才是。</b>超过约 ¥3 万后，每月公开试用名额（默认 300 个）用满，多出的申请只是排队：¥5 万时第 12 个月营收 ¥97.3 万，¥10 万时 ¥97.3 万。<span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span></li><li><b>转化率比预算更关键。</b>同样 ¥20,000，若试用转付费降到基准的约 37%，第 12 个月营收只有 ¥21.8 万。<span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span> <sup class="ref"><a href="#src-S272" title="163.com · 报告：56.1%的职场人愿意为AI服务付费|求职|智联招聘|ai服务_网易订阅">S272</a></sup></li><li><b>¥3,000 合规与财税要在收费前花完</b>；¥2,000 投流机动金只在闸门（H1、H9 通过且月营收稳定 ¥10 万）后释放。</li></ul>
+<h2 class="h1" id="s2">预算控制台</h2>
+<p>输入预算或点快捷按钮；科目占比可以直接改。合计不等于 100% 时，模型按你填的实际金额计算，点“归一”可以按比例拉回 100%。</p>
+
+<div class="ctrl">
+ <label for="bIn">年度营销预算（元）</label>
+ <input type="number" id="bIn" min="1000" max="1000000" step="1000" value="20000">
+ <input type="range" id="bRange" min="5000" max="150000" step="1000" value="20000" aria-label="预算滑杆">
+ <span class="chips" id="bChips"><button type="button" id="q10000" data-b="10000">1 万</button><button type="button" id="q20000" data-b="20000">2 万（默认）</button><button type="button" id="q50000" data-b="50000">5 万</button><button type="button" id="q100000" data-b="100000">10 万</button></span>
+ <button type="button" id="reset">恢复默认占比与预算</button>
+</div>
+<div class="cards" id="kcards"></div>
+<p class="note" id="kmsg"></p>
+<h3 class="h2" id="s2-1">科目占比与金额</h3>
+
+<div class="tw"><table class="d6pct"><thead><tr><th>预算科目</th><th>占比 %（可改）</th><th>金额</th><th style="width:30%">比例</th><th>性质</th></tr></thead>
+<tbody id="pctBody"></tbody><tfoot><tr><td><b>合计</b></td><td id="pctSum"></td><td id="amtSum"></td><td colspan="2"><button type="button" id="norm" class="d6btn">按比例归一到 100%</button> <span id="pctWarn" class="note"></span></td></tr></tfoot></table></div>
+<h3 class="h2" id="s2-2">子项明细</h3>
+<div class="tw"><table><thead><tr><th>科目</th><th>子项</th><th>占科目 %</th><th>金额</th><th>说明</th></tr></thead><tbody id="subBody"></tbody></table></div>
+<h2 class="h1" id="s3">科目 × 月份热力表</h2>
+<p>颜色越深，当月花得越多。2026-12 与 2027-01 集中在合规和创始用户；2027-02 春节月几乎不花；机动金从 2027-04 起才有。</p>
+<div class="tw"><table class="heat d6heat"><thead id="heatHead"></thead><tbody id="heatBody"></tbody><tfoot id="heatFoot"></tfoot></table></div>
+<h2 class="h1" id="s4">月度现金曲线</h2>
+<p>柱为当月营销支出，线为累计支出（右轴）。用来安排付款节奏：前两个月要准备好全年约四分之一的现金。</p>
+<div class="d6svg" id="svgSpend"></div>
+<h3 class="h2" id="s4-1">月营收路径</h3>
+<p>实线为当前预算，虚线为默认 ¥20,000 的对照；两条横线是 ¥10 万（阶段一）和 ¥50 万（阶段二）。</p>
+<div class="d6svg" id="svgRev"></div>
+<h2 class="h1" id="s5">模型推演：逐月结果</h2>
+<p>候补申请 → 每月按名额放号（公开试用）→ 试用转付费；付费用户每月发出邀请（邀请试用）→ 被邀请人转付费；在付用户按月流失率减少。2026-12 封闭测试不收费，转化计入 2027-01。</p>
+<div class="tw"><table class="heat"><thead><tr><th>月份</th><th>候补申请</th><th>公开试用</th><th>邀请试用</th><th>新付费</th><th>在付</th><th>其中尊享</th><th>月营收</th><th>营销支出</th><th>候补积压</th></tr></thead><tbody id="rowBody"></tbody><tfoot id="rowFoot"></tfoot></table></div>
+<h2 class="h1" id="s6">调仓规则</h2>
+<p>结论：<b>按月小步调，闸门前不动机动金。</b></p>
+<div class="tw"><table><colgroup><col style="width:16.7%"><col style="width:62.5%"><col style="width:20.8%"></colgroup><thead><tr><th>规则</th><th>怎么做</th><th>依据</th></tr></thead><tbody><tr><td>调仓时间</td><td>每月第 1 周预算会；按各渠道的边际全成本 CAC 排序</td><td>计划 V13 7.5</td></tr><tr><td>单次幅度</td><td>单次调仓不超过该科目当季余额的 20%</td><td>计划 V13 7.5</td></tr><tr><td>止损线</td><td>任一付费渠道连续 2 周的付费获客成本超过模型 CAC（默认 ¥40）的 1.5 倍即暂停，钱转到 OPC 社群与现场演示</td><td>计划 V13 7.5</td></tr><tr><td>机动金</td><td>H1、H9 通过且月营收稳定 ¥10 万后才释放；闸门不过，留到下季度或转入内容制作</td><td>计划 V13 4.6</td></tr><tr><td>合规科目</td><td>收费前必须花完，不参与调仓；09 月复核预留不挪用</td><td>计划 V13 ⑥</td></tr><tr><td>加预算前</td><td>先看“候补积压”列：积压 &gt; 0 说明名额已是瓶颈，先放开名额并备好算力与尊享服务人手，再加钱</td><td><span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span> 模型推演</td></tr><tr><td>减预算时</td><td>先砍机动金与播客，最后动自有账号与知乎（自然流量有加成，长期复利）</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr></tbody></table></div>
+<h2 class="h1" id="s7">读表说明</h2>
+<ul><li><b>月营收</b>按“在付用户 × 加权单价”计（畅享 / 尊享按假设比例），默认加权单价 ¥1,299/月；季付、年付未计入。</li><li><b>净贡献</b> = 全年营收 − 算力成本 − 营销预算；<b>团队人力未计入</b>，不是利润。</li><li><b>首次达到</b>指模型中月营收第一次达到该金额的月份；阶段一的考核是 ¥10 万连续 3 个月（2027-04-30 前）。</li><li><b>候补积压</b>是当月放号后仍在排队的申请；大于 0 表示预算超出了放号名额能消化的量。</li><li><b>营销支出</b>只含本表科目；算力、服务人员工资不在其中。</li><li>小数四舍五入显示，合计可能差 1。</li></ul>
+<h3 class="h2" id="s7-1">模型假设（默认值）</h3>
+<div class="tw"><table><colgroup><col style="width:30.0%"><col style="width:40.0%"><col style="width:30.0%"></colgroup><thead><tr><th>假设</th><th>默认值</th><th>证据</th></tr></thead><tbody><tr><td>每个候补申请成本</td><td>¥15（¥2 万预算时；预算翻倍成本上升 15%）</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr><tr><td>自有账号自然流量加成</td><td>1.5 倍（相对付费内容）</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr><tr><td>种子邀请试用</td><td>60 人（2026-12 至 2027-01）</td><td><span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span> <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup></td></tr><tr><td>每月公开试用名额上限</td><td>300 个</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr><tr><td>公开 / 邀请试用转付费</td><td>20% / 35%</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span> 封测后替换</td></tr><tr><td>每个在付用户每月发出邀请</td><td>0.12（终身上限 3 人）</td><td><span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span> <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup></td></tr><tr><td>月流失率</td><td>4%</td><td><span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span> H9 验证</td></tr><tr><td>两档价格 / 尊享版占比</td><td>¥999 · ¥1,999 / 30%</td><td><span class="ev eva" title="证据等级：A 已验证"><i>A</i>已验证</span> 价格 <sup class="ref"><a href="#src-M4" title="公司内部资料 · 会议纪要：晨会：产品定位、核心能力与定价（2026-11-18）">M4</a>,<a href="#src-M5" title="公司内部资料 · 《司徒 服务说明（畅享版 / 尊享版）》草案 v0.26 与品牌手册 v0.14">M5</a></sup>；占比 <span class="ev evc" title="证据等级：C 假设"><i>C</i>假设</span></td></tr><tr><td>每在付用户月算力成本</td><td>¥200</td><td><span class="ev evb" title="证据等级：B 有依据的推断"><i>B</i>有依据的推断</span> 会议估 ¥100–300 <sup class="ref"><a href="#src-M3" title="公司内部资料 · 会议纪要：目标人群与定价策略（2026-11-13）">M3</a></sup></td></tr></tbody></table></div>
+<h3 class="h2" id="s7-2">预算情景（默认假设）</h3>
+<div class="tw"><table><colgroup><col style="width:16.0%"><col style="width:16.0%"><col style="width:17.0%"><col style="width:17.0%"><col style="width:17.0%"><col style="width:17.0%"></colgroup><thead><tr><th>预算</th><th>第 12 个月在付</th><th>第 12 个月营收</th><th>全年营收</th><th>首次达 ¥50 万</th><th>净贡献</th></tr></thead><tbody><tr><td>¥10,000</td><td>302</td><td>¥39.2 万</td><td>¥273.4 万</td><td>12 个月内未达到</td><td>¥230.3 万</td></tr><tr><td>¥20,000</td><td>527</td><td>¥68.5 万</td><td>¥468.5 万</td><td>2027-08</td><td>¥394.4 万</td></tr><tr><td>¥30,000</td><td>735</td><td>¥95.5 万</td><td>¥632.4 万</td><td>2027-06</td><td>¥532.0 万</td></tr><tr><td>¥50,000</td><td>749</td><td>¥97.3 万</td><td>¥634.8 万</td><td>2027-06</td><td>¥532.0 万</td></tr><tr><td>¥10.0 万</td><td>749</td><td>¥97.3 万</td><td>¥634.8 万</td><td>2027-06</td><td>¥527.0 万</td></tr></tbody></table></div>
+<p class="note">情景表是静态快照，用于核对；交互结果以上方控制台为准。下行情景（试用体验 ¥999 档后转付费降为约 37%）：第 12 个月营收 ¥21.8 万，首次达 ¥10 万 2027-04。</p>
+<h2 class="h1" id="s8">附：证据等级与数据来源</h2>
+<div class="evgrid"><div><span class="ev eva"><i>A</i>已验证</span><p>多个独立来源一致，或有公司实际数据支撑。可以直接作为决策依据。</p></div><div><span class="ev evb"><i>B</i>有依据的推断</span><p>有数据指向，但样本或口径有限。可以用来做计划，需要继续观察。</p></div><div><span class="ev evc"><i>C</i>假设</span><p>暂无数据支撑。先小规模测试，再决定是否放大（进入《测试计划》）。</p></div></div>
+<p class="note">S 编号与《营销计划 V13》附录 A 一致，M 编号为公司内部资料。点正文中的编号可以跳到这里。</p><div class="tw"><table class="src"><thead><tr><th>编号</th><th>发布方</th><th>标题 / 链接</th><th>日期</th></tr></thead><tbody><tr id="src-S272"><td class="nw"><b>S272</b></td><td>163.com</td><td><a href="https://www.163.com/dy/article/KA3AAEAO0519C6T9.html" target="_blank" rel="noopener noreferrer">报告：56.1%的职场人愿意为AI服务付费|求职|智联招聘|ai服务_网易订阅</a></td><td class="nw">2026-11-13</td></tr><tr id="src-M3"><td class="nw"><b>M3</b></td><td>公司内部资料</td><td><a href="https://javis-hnw-minutes.accrepo.com/" target="_blank" rel="noopener noreferrer">会议纪要：目标人群与定价策略（2026-11-13）</a></td><td class="nw">2026-11</td></tr><tr id="src-M4"><td class="nw"><b>M4</b></td><td>公司内部资料</td><td><a href="https://javis-minutes-1118.accrepo.com/" target="_blank" rel="noopener noreferrer">会议纪要：晨会：产品定位、核心能力与定价（2026-11-18）</a></td><td class="nw">2026-11</td></tr><tr id="src-M5"><td class="nw"><b>M5</b></td><td>公司内部资料</td><td><a href="https://situ-brand-book.accrepo.com/" target="_blank" rel="noopener noreferrer">《司徒 服务说明（畅享版 / 尊享版）》草案 v0.26 与品牌手册 v0.14</a></td><td class="nw">2026-11</td></tr></tbody></table></div><nav class="pager"><a href="d05.html">← 05 营销行动计划</a><a href="index.html">全部交付物</a><a href="d07.html">07 KPI 看板 →</a></nav></main></div>
+<footer>司徒 Situ · 营销交付物 · 依据《营销计划 V13（两档定价）》、品牌手册 v0.14 与服务说明 v0.26 · 编制：[公司名称] · 证据等级：A 已验证 / B 有依据的推断 / C 假设</footer>
+<script>
+(function(){var links=[].slice.call(document.querySelectorAll('.toc a'));var hs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+function on(){var y=window.scrollY+120,k=0;hs.forEach(function(h,i){if(h&&h.offsetTop<=y)k=i});links.forEach(function(a,i){a.classList.toggle('on',i===k)})}
+window.addEventListener('scroll',on,{passive:true});on();
+document.querySelectorAll('sup.ref a').forEach(function(a){a.addEventListener('click',function(){var t=document.querySelector(a.getAttribute('href'));if(t){t.classList.add('hl');setTimeout(function(){t.classList.remove('hl')},2500)}})});})();
+</script><script>
+/* 模型：原样取自 run_model.js（计划 V13 内嵌模型） */
+var MONTHS=['2026-12','2027-01','02','03','04','05','06','07','08','09','10','11'];
+var ITEMS=[
+ {k:'own',name:'自有账号内容（小红书 / 抖音 / 公众号养号）',pct:35,c:'#2f6bff',acq:true,m:[14,12,4,10,8,7,7,8,7,8,8,7],
+  subs:[['vid','真实工作流短视频（团队自制，含剪辑外包）',55,'每周 2–3 条'],['post','图文笔记与公众号长文',25,''],['tool','账号运营工具与素材',20,'']]},
+ {k:'kol',name:'效率与一人公司博主合作',pct:15,c:'#ff8a3d',acq:true,m:[0,10,0,15,10,10,10,10,10,10,10,5],
+  subs:[['kxhs','小红书 / 即刻中腰部博主（试用 + 分成为主）',70,'',800],['kpod','创业与效率播客、公众号',30,'',2000]]},
+ {k:'comm',name:'OPC 社群与线下分享',pct:10,c:'#7b61ff',acq:true,m:[10,10,2,12,10,8,8,8,8,8,8,8],
+  subs:[['opc','OPC 社区 / 创业营分享（物料、场地分摊）',60,''],['group','用户社群运营',40,'']]},
+ {k:'seo',name:'知乎、SEO 与 GEO',pct:10,c:'#00b3a4',acq:true,m:[15,12,6,12,8,7,7,7,6,7,7,6],
+  subs:[['zhihu','知乎“一人公司 AI 工具”“效率焦虑”话题回答',45,'创始人亲写'],['geo','GEO：结构化 FAQ 与对比页',55,'']]},
+ {k:'inc',name:'推荐奖励与创始用户',pct:5,c:'#c8961e',acq:true,m:[20,15,0,10,5,5,10,5,5,5,10,10],
+  subs:[['gift','创始用户礼物与共创会',60,''],['ref','推荐奖励（免费周按算力计，现金部分）',40,'']]},
+ {k:'trust',name:'合规与财税咨询',pct:15,c:'#14213d',acq:false,m:[50,30,0,10,0,0,0,0,0,10,0,0],
+  subs:[['legal','律师审核协议、隐私政策与生成式 AI 登记',50,'收费前完成'],['tax','财税顾问：主体、收款、跨境数据方案',50,'收费前完成']]},
+ {k:'reserve',name:'投流机动金（粘性验证后释放）',pct:10,c:'#b9c3d6',acq:false,m:[0,0,0,0,10,15,15,15,15,10,10,10],
+  subs:[['gate','H1、H9 通过后用于小红书 / 抖音投流',100,'2027-03 闸门后']]}
+];
+var DEF_PCT={};ITEMS.forEach(function(i){DEF_PCT[i.k]=i.pct;});
+var AF=[
+ ['cpw','每个候补申请成本（元，2 万预算时）',15,1,'n'],
+ ['el','规模弹性（预算翻倍成本上升）',0.15,0.01,'n'],
+ ['org','自有账号自然流量加成（相对付费内容）',1.5,0.1,'p'],
+ ['seed','种子邀请试用（团队人脉，2026-12 至 2027-01）',60,5,'n'],
+ ['quota','每月公开试用名额上限（候补 → 试用）',300,10,'n'],
+ ['trialConv','公开试用转付费率',0.20,0.01,'p'],
+ ['invPer','每个在付用户每月发出邀请（终身上限 3 人）',0.12,0.01,'n'],
+ ['invConv','被邀请人试用转付费率',0.35,0.01,'p'],
+ ['churn','月流失率',0.04,0.005,'p'],
+ ['pPro','畅享版（元/月）',999,1,'n'],
+ ['pFlag','尊享版（元/月）',1999,1,'n'],
+ ['mixFlag','付费中尊享版占比（暂定）',0.30,0.01,'p'],
+ ['svcStaff','尊享版专属服务人员（人，暂定）',2,1,'n'],
+ ['cost','每在付用户月算力成本（元）',200,10,'n'],
+ ['payStart','开始收费的月份序号（0=2026-12，1=2027-01）',1,1,'n'],
+ ['target','月营收目标（元）',500000,10000,'n']
+];
+var DEF_A={};AF.forEach(function(a){DEF_A[a[0]]=a[2];});
+var S={B:20000,pct:Object.assign({},DEF_PCT),A:Object.assign({},DEF_A)};
+var LAUNCH=3; // 2027-03 正式销售（分成伙伴与团队单从这个月开始）
+
+// 价格接受度曲线：S272 两点拟合（职场人单工具月费上限 ≥¥50 占 24.8%，≥¥200 占 4.3%）
+var WTP=(function(){var l1=Math.log((1-0.248)/0.248),l2=Math.log((1-0.043)/0.043),b=(l2-l1)/Math.log(200/50),M=50/Math.exp(l1/b);return {M:M,b:b};})();
+function accept(p){return 1/(1+Math.pow(Math.max(p,0.01)/WTP.M,WTP.b));}
+function model(B,pct,A){
+ var v={B:B},sum=0,pool=0;
+ ITEMS.forEach(function(i){var a=B*(pct[i.k]||0)/100;v['it_'+i.k]=a;sum+=a;if(i.acq)pool+=a;
+  i.subs.forEach(function(s){var x=a*s[2]/100;v['sub_'+i.k+'_'+s[0]]=x;if(s[4]){v['n_'+s[0]]=x/s[4];v['u_'+s[0]]=s[4];}});});
+ v.allocSum=sum;v.pool=pool;v.kocNotes=(v.n_kxhs||0)+(v.n_kpod||0);
+ var mixFlag=Math.min(1,Math.max(0,A.mixFlag)),mixPro=1-mixFlag;
+ v.mixPro=mixPro;v.mixFlag=mixFlag;v.churn=A.churn;
+ v.avgInd=mixPro*A.pPro+mixFlag*A.pFlag;
+ v.arpu=v.avgInd;
+ v.pProT=money(A.pPro)+'/月';v.pFlagT=money(A.pFlag)+'/月';
+ v.cprEff=A.cpw*Math.pow(Math.max(B,1)/20000,A.el);
+ var aP=0,aR=0,backlog=0,pendP=0,pendR=0,tot={apps:0,pub:0,inv:0,newP:0,newR:0,rev:0,revP:0,revR:0,cost:0};
+ v.mon=[];v.rows=[];v.hit={};
+ for(var m=0;m<12;m++){
+  var t=0,acq=0;
+  ITEMS.forEach(function(i){var x=v['it_'+i.k]*i.m[m]/100;v['m_'+i.k+'_'+m]=x;t+=x;if(i.acq)acq+=x;});
+  v.mon.push(t);
+  var apps=acq/v.cprEff*(1+A.org); backlog+=apps;
+  var pub=Math.min(backlog,A.quota); backlog-=pub;
+  var seedT=m<2?A.seed/2:0;
+  var inv=(aP+aR)*A.invPer+seedT;
+  var newP=pub*A.trialConv, newR=inv*A.invConv;
+  if(m<A.payStart){pendP+=newP;pendR+=newR;newP=0;newR=0;}else if(pendP+pendR>0){newP+=pendP;newR+=pendR;pendP=0;pendR=0;}
+  aP=aP*(1-A.churn)+newP; aR=aR*(1-A.churn)+newR;
+  var act=aP+aR, flag=act*mixFlag;
+  var revP=aP*v.avgInd,revR=aR*v.avgInd,mrr=revP+revR;
+  v.rows.push({m:MONTHS[m],apps:apps,pub:pub,inv:inv,newPay:newP+newR,act:act,flag:flag,book:mrr,bookB:revP,bookR:revR,backlog:backlog});
+  tot.apps+=apps;tot.pub+=pub;tot.inv+=inv;tot.newP+=newP;tot.newR+=newR;tot.rev+=mrr;tot.revP+=revP;tot.revR+=revR;tot.cost+=act*A.cost;
+  [100000,500000,1000000].forEach(function(g){if(v.hit[g]===undefined&&mrr>=g)v.hit[g]=MONTHS[m];});
+  if(v.hit.u2000===undefined&&act>=2000)v.hit.u2000=MONTHS[m];
+ }
+ var last=v.rows[11];
+ v.regTotal=tot.pub+tot.inv;v.trialsPub=tot.pub;v.trialsInv=tot.inv;v.appsTotal=tot.apps;v.backlogEnd=last.backlog;
+ v.payTotal=last.act;v.subsM12=last.act;v.flagM12=last.flag;v.svcStaff=A.svcStaff;v.flagPerStaff=last.flag/Math.max(A.svcStaff,1);v.bookYear=tot.rev;
+ v.bookM6=v.rows[6].book;v.bookM12=last.book;v.target=A.target;v.hitPct=v.bookM12/A.target;
+ v.firstHit=null;for(var k=0;k<12;k++){if(v.rows[k].book>=A.target){v.firstHit=MONTHS[k];break;}}
+ v.firstHitTxt=v.firstHit||'12 个月内未达到';
+ var nh=function(x){return x||'12 个月内未达到';};
+ v.hit10=nh(v.hit[100000]);v.hit50=nh(v.hit[500000]);v.hit100=nh(v.hit[1000000]);v.hitU2000=nh(v.hit.u2000);
+ v.costYear=tot.cost;v.gm=1-tot.cost/Math.max(tot.rev,1);
+ v.net=tot.rev-tot.cost-sum;
+ v.budgetPayers=tot.newP;v.refPayers=tot.newR;v.refShare=tot.newR/Math.max(tot.newP+tot.newR,1e-9);
+ v.cacBudget=sum/Math.max(tot.newP,1e-9);
+ v.ltvUnit=(v.arpu-A.cost)/Math.max(A.churn,0.001);v.lifeM=1/Math.max(A.churn,0.001);
+ v.mer=v.bookYear/Math.max(sum,1);
+ v.shareBudget=tot.revP/Math.max(tot.rev,1);v.shareRef=tot.revR/Math.max(tot.rev,1);
+ v.trialConv=A.trialConv;v.invConv=A.invConv;v.quota=A.quota;v.seed=A.seed;
+ // 2000 名长期用户需要多少试用
+ var blended=(tot.newP+tot.newR)/Math.max(tot.pub+tot.inv,1);v.blendConv=blended;
+ v.trialsFor2000=2000/Math.max(blended,1e-9);
+ v.users10=100000/v.arpu;v.users50=500000/v.arpu;v.rev2000=2000*v.arpu;
+ v.accEntry=accept(A.pPro);
+ return v;
+}
+
+function money(x){var s=x<0?'-':'';x=Math.abs(x);if(x>=1e8)return s+'¥'+(x/1e8).toFixed(2)+' 亿';if(x>=1e6)return s+'¥'+(x/1e4).toFixed(0)+' 万';return s+'¥'+Math.round(x).toLocaleString('zh-CN');}
+function fmt(x,f){
+ if(typeof x==='string')return x;
+ if(x===undefined||x===null||isNaN(x))return '—';
+ switch(f){
+  case 'int':return Math.round(x).toLocaleString('zh-CN');
+  case 'x':return x.toFixed(1)+'×';
+  case 'pct':return (x*100).toFixed(1)+'%';
+  case 'pct0':return Math.round(x*100)+'%';
+  case 'pct3':return (x*100).toFixed(2)+'%';
+  case 'num0':return Math.round(x).toString();
+  case 'num1':return x.toFixed(1);
+  case 'signed':return (x>=0?'+':'')+money(x);
+  default:return money(x);
+ }
+}
+</script>
+<script>
+(function(){
+var FULL=MONTHS.map(function(m,i){return i===0?m:'2027-'+(i<10?'0':'')+i;});
+function fm(m){var i=MONTHS.indexOf(m);return i>=0?FULL[i]:m;}
+function yuan(x){var s=x<0?'-':'';x=Math.abs(x);if(x>=1e5)return s+'¥'+(x/1e4).toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+' 万';return s+'¥'+Math.round(x).toLocaleString('en-US');}
+function int(x){return Math.round(x).toLocaleString('en-US');}
+function $(id){return document.getElementById(id);}
+var BASE=model(20000,DEF_PCT,DEF_A);
+var D={last:null,base:BASE};
+function sumPct(){var s=0;ITEMS.forEach(function(i){s+=+S.pct[i.k]||0;});return s;}
+function delta(a,b,isMoney){var d=a-b;if(Math.abs(d)<0.5)return '<div class="dl6 note">与默认 ¥2 万相同</div>';
+ var t=(d>0?'+':'−')+(isMoney?yuan(Math.abs(d)):int(Math.abs(d)));return '<div class="dl6 '+(d>0?'ok-t':'bad-t')+'">较默认 '+t+'</div>';}
+function card(v,l,extra){return '<div class="cardk"><div class="v">'+v+'</div><div class="l">'+l+'</div>'+(extra||'')+'</div>';}
+
+function buildPct(){
+ $('pctBody').innerHTML=ITEMS.map(function(i){
+  return '<tr><td><span class="sw" style="background:'+i.c+'"></span>'+i.name+'</td><td><input type="number" min="0" max="100" step="1" id="p_'+i.k+'" value="'+S.pct[i.k]+'"></td><td id="a_'+i.k+'"></td><td><div class="bar"><i id="bar_'+i.k+'"></i></div></td><td>'+(i.acq?'<span class="pill">获客</span>':'<span class="pill p3">非获客</span>')+'</td></tr>';}).join('');
+ ITEMS.forEach(function(i){var el=$('p_'+i.k);el.addEventListener('input',function(){var x=parseFloat(el.value);S.pct[i.k]=isNaN(x)||x<0?0:x;render();});});
+}
+function syncPctInputs(){ITEMS.forEach(function(i){$('p_'+i.k).value=S.pct[i.k];});}
+
+function svgSpend(v){
+ var W=760,H=260,L=58,R=58,T=16,Bt=34,w=W-L-R,h=H-T-Bt,n=12,bw=w/n*0.62;
+ var cum=[],c=0;v.mon.forEach(function(x){c+=x;cum.push(c);});
+ var mx=Math.max.apply(null,v.mon)||1,cx=c||1,o='';
+ for(var g=0;g<=4;g++){var yy=T+h-h*g/4;o+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="#eee"/>'+
+  '<text x="'+(L-6)+'" y="'+(yy+4)+'" text-anchor="end">'+yuan(mx*g/4)+'</text><text x="'+(W-R+6)+'" y="'+(yy+4)+'">'+yuan(cx*g/4)+'</text>';}
+ var pts=[];
+ v.mon.forEach(function(x,m){var X=L+w/n*(m+0.5),bh=h*x/mx;
+  o+='<rect x="'+(X-bw/2)+'" y="'+(T+h-bh)+'" width="'+bw+'" height="'+bh+'" rx="3" fill="#FF8A4C"><title>'+FULL[m]+' 支出 '+yuan(x)+'</title></rect>';
+  o+='<text x="'+X+'" y="'+(H-14)+'" text-anchor="middle">'+(m?MONTHS[m]:'12')+'</text>';
+  pts.push(X+','+(T+h-h*cum[m]/cx));});
+ o+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="#14213d" stroke-width="2"/>';
+ pts.forEach(function(p,m){var a=p.split(',');o+='<circle cx="'+a[0]+'" cy="'+a[1]+'" r="3" fill="#14213d"><title>'+FULL[m]+' 累计 '+yuan(cum[m])+'</title></circle>';});
+ o+='<text x="'+L+'" y="'+(H-1)+'">2026-12 → 2027-11　柱：当月支出（左轴）　线：累计支出（右轴）</text>';
+ return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="月度现金曲线">'+o+'</svg>';
+}
+function svgRev(v){
+ var W=760,H=280,L=66,R=20,T=16,Bt=34,w=W-L-R,h=H-T-Bt,n=12;
+ var a=v.rows.map(function(r){return r.book;}),b=BASE.rows.map(function(r){return r.book;});
+ var mx=Math.max(Math.max.apply(null,a),Math.max.apply(null,b),520000),o='';
+ for(var g=0;g<=4;g++){var yy=T+h-h*g/4;o+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="#eee"/><text x="'+(L-6)+'" y="'+(yy+4)+'" text-anchor="end">'+yuan(mx*g/4)+'</text>';}
+ [[100000,'¥10 万','#14A37F'],[500000,'¥50 万','#c92a2a']].forEach(function(t){var yy=T+h-h*t[0]/mx;o+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+yy+'" y2="'+yy+'" stroke="'+t[2]+'" stroke-dasharray="2 3"/><text x="'+(W-R-4)+'" y="'+(yy-4)+'" text-anchor="end" style="fill:'+t[2]+'">'+t[1]+'</text>';});
+ function line(arr,st){var p=arr.map(function(x,m){return (L+w/n*(m+0.5))+','+(T+h-h*x/mx);});return '<polyline points="'+p.join(' ')+'" fill="none" '+st+'/>';}
+ o+=line(b,'stroke="#9aa5b8" stroke-width="2" stroke-dasharray="5 4"')+line(a,'stroke="#E8550F" stroke-width="2.5"');
+ a.forEach(function(x,m){var X=L+w/n*(m+0.5);o+='<circle cx="'+X+'" cy="'+(T+h-h*x/mx)+'" r="3.2" fill="#E8550F"><title>'+FULL[m]+' 月营收 '+yuan(x)+'</title></circle><text x="'+X+'" y="'+(H-14)+'" text-anchor="middle">'+(m?MONTHS[m]:'12')+'</text>';});
+ o+='<text x="'+L+'" y="'+(H-1)+'">实线：当前预算　虚线：默认 ¥2 万</text>';
+ return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="月营收路径">'+o+'</svg>';
+}
+
+function render(){
+ var v=model(S.B,S.pct,S.A);D.last=v;
+ var sp=sumPct();
+ // 卡片
+ var bl=v.backlogEnd;
+ $('kcards').innerHTML=[
+  card(yuan(v.allocSum),'实际分配的营销预算'+(Math.abs(sp-100)>0.01?'（占比合计 '+sp.toFixed(1)+'%）':'')),
+  card(yuan(v.bookM12),'第 12 个月营收（2027-11）',delta(v.bookM12,BASE.bookM12,true)),
+  card(yuan(v.bookYear),'全年营收',delta(v.bookYear,BASE.bookYear,true)),
+  card(fm(v.hit10),'首次达到月营收 ¥10 万'),
+  card(fm(v.hit50),'首次达到月营收 ¥50 万'),
+  card(yuan(v.net),'净贡献（扣算力与营销，未计人力）',delta(v.net,BASE.net,true)),
+  card(int(v.subsM12)+' / '+int(v.flagM12),'第 12 个月在付 / 其中尊享',delta(v.subsM12,BASE.subsM12,false)),
+  card((v.refShare*100).toFixed(1)+'%','邀请带来的新付费占比（目标 ≥ 25%）')
+ ].join('');
+ $('kmsg').innerHTML=(bl>0.5?'<span class="warn-t">注意：期末仍有 '+int(bl)+' 个候补申请在排队，放号名额（'+int(S.A.quota)+'/月）已是瓶颈，再加预算基本不增加营收。</span> ':'')+
+  '尊享客户每位服务人员约 '+int(v.flagPerStaff)+' 位（'+S.A.svcStaff+' 人）；预算渠道 CAC '+yuan(v.cacBudget)+'；MER '+v.mer.toFixed(1)+'×。';
+ // 快捷按钮状态
+ [10000,20000,50000,100000].forEach(function(b){var e=$('q'+b);if(e&&e.classList)e.classList.toggle('on',S.B===b);});
+ // 占比表
+ var mxA=0;ITEMS.forEach(function(i){mxA=Math.max(mxA,v['it_'+i.k]);});
+ ITEMS.forEach(function(i){var x=v['it_'+i.k];$('a_'+i.k).innerHTML=yuan(x);$('bar_'+i.k).style.width=(mxA?x/mxA*100:0)+'%';});
+ $('pctSum').innerHTML='<b class="'+(Math.abs(sp-100)>0.01?'warn-t':'ok-t')+'">'+(+sp.toFixed(1))+'%</b>';
+ $('amtSum').innerHTML='<b>'+yuan(v.allocSum)+'</b>';
+ $('pctWarn').innerHTML=Math.abs(sp-100)>0.01?'合计不是 100%：按实际金额计算。':'';
+ // 子项
+ $('subBody').innerHTML=ITEMS.map(function(i){return i.subs.map(function(s,j){
+  var x=v['sub_'+i.k+'_'+s[0]],note=s[3]||'';
+  if(s[4])note=(note?note+'；':'')+'按每篇约 '+yuan(s[4])+' 计，约 '+v['n_'+s[0]].toFixed(1)+' 篇';
+  return '<tr>'+(j===0?'<td rowspan="'+i.subs.length+'"><span class="sw" style="background:'+i.c+'"></span>'+i.name+'</td>':'')+'<td>'+s[1]+'</td><td>'+s[2]+'%</td><td>'+yuan(x)+'</td><td>'+note+'</td></tr>';}).join('');}).join('');
+ // 热力表
+ var mx=0;ITEMS.forEach(function(i){for(var m=0;m<12;m++)mx=Math.max(mx,v['m_'+i.k+'_'+m]);});
+ $('heatHead').innerHTML='<tr><th>科目</th>'+FULL.map(function(m){return '<th>'+m+'</th>';}).join('')+'<th>合计</th></tr>';
+ $('heatBody').innerHTML=ITEMS.map(function(i){var t=0;return '<tr><td><span class="sw" style="background:'+i.c+'"></span>'+i.name.replace(/（.*$/,'')+'</td>'+
+  [0,1,2,3,4,5,6,7,8,9,10,11].map(function(m){var x=v['m_'+i.k+'_'+m];t+=x;var a=mx?x/mx:0;
+   return '<td class="c" style="background:rgba(255,106,31,'+(a*0.85).toFixed(3)+');color:'+(a>0.55?'#fff':'inherit')+'">'+(x>0.5?int(x):'·')+'</td>';}).join('')+'<td class="c"><b>'+int(t)+'</b></td></tr>';}).join('');
+ $('heatFoot').innerHTML='<tr><td><b>当月合计</b></td>'+v.mon.map(function(x){return '<td class="c"><b>'+int(x)+'</b></td>';}).join('')+'<td class="c"><b>'+int(v.allocSum)+'</b></td></tr>';
+ // 图
+ $('svgSpend').innerHTML=svgSpend(v);
+ $('svgRev').innerHTML=svgRev(v);
+ // 逐月表
+ var T={apps:0,pub:0,inv:0,newPay:0,book:0,sp:0};
+ $('rowBody').innerHTML=v.rows.map(function(r,m){T.apps+=r.apps;T.pub+=r.pub;T.inv+=r.inv;T.newPay+=r.newPay;T.book+=r.book;T.sp+=v.mon[m];
+  var hit=r.book>=500000?' class="ok-t"':(r.book>=100000?' style="color:#14A37F"':'');
+  return '<tr><td>'+FULL[m]+'</td><td>'+int(r.apps)+'</td><td>'+int(r.pub)+'</td><td>'+int(r.inv)+'</td><td>'+int(r.newPay)+'</td><td>'+int(r.act)+'</td><td>'+int(r.flag)+'</td><td'+hit+'>'+yuan(r.book)+'</td><td>'+yuan(v.mon[m])+'</td><td>'+(r.backlog>0.5?'<span class="warn-t">'+int(r.backlog)+'</span>':'0')+'</td></tr>';}).join('');
+ $('rowFoot').innerHTML='<tr><td><b>全年</b></td><td><b>'+int(T.apps)+'</b></td><td><b>'+int(T.pub)+'</b></td><td><b>'+int(T.inv)+'</b></td><td><b>'+int(T.newPay)+'</b></td><td><b>'+int(v.subsM12)+'</b>（期末）</td><td><b>'+int(v.flagM12)+'</b>（期末）</td><td><b>'+yuan(T.book)+'</b></td><td><b>'+yuan(T.sp)+'</b></td><td><b>'+int(v.backlogEnd)+'</b>（期末）</td></tr>';
+ return v;
+}
+function setB(b){b=Math.round(+b);if(!(b>0))return D.last;S.B=b;$('bIn').value=b;$('bRange').value=Math.min(150000,Math.max(5000,b));return render();}
+function normalize(){var s=sumPct();if(s<=0){S.pct=Object.assign({},DEF_PCT);}else{var r=0,big=null;
+ ITEMS.forEach(function(i){S.pct[i.k]=Math.round(S.pct[i.k]/s*1000)/10;r+=S.pct[i.k];if(!big||S.pct[i.k]>S.pct[big])big=i.k;});
+ S.pct[big]=Math.round((S.pct[big]+100-r)*10)/10;}
+ syncPctInputs();return render();}
+function reset(){S.pct=Object.assign({},DEF_PCT);S.A=Object.assign({},DEF_A);syncPctInputs();return setB(20000);}
+D.setB=setB;D.normalize=normalize;D.reset=reset;D.render=render;D.S=S;
+window.D06=D;
+buildPct();
+$('bIn').addEventListener('input',function(){var x=parseFloat($('bIn').value);if(x>0){S.B=x;$('bRange').value=Math.min(150000,Math.max(5000,x));render();}});
+$('bRange').addEventListener('input',function(){setB($('bRange').value);});
+[10000,20000,50000,100000].forEach(function(b){$('q'+b).addEventListener('click',function(){setB(b);});});
+$('norm').addEventListener('click',normalize);
+$('reset').addEventListener('click',reset);
+render();
+})();
+</script>
+</body></html>
